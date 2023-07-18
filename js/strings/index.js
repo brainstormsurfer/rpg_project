@@ -149,7 +149,7 @@ console.log(timeDescription("Retrieve the sacred artifact from the dragon's laye
 function splitMonsters(monsters){
     // const noCommas = monsters.replaceAll(',','s')
     // const monstersArray = noCommas.split(' ')
-    return monsters.replaceAll(',','').split(' ')
+    return monsters.replaceAll(',','').split(' ') // CR - this will be enough - return monsters.split(', ')
 }
 console.log(splitMonsters('goblin, orc, dragon' ));
 
