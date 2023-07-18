@@ -149,15 +149,29 @@ console.log(timeDescription("Retrieve the sacred artifact from the dragon's laye
 function splitMonsters(monsters){
     // const noCommas = monsters.replaceAll(',','s')
     // const monstersArray = noCommas.split(' ')
-    return monsters.replaceAll(',','s').split(' ')
+    return monsters.replaceAll(',','').split(' ')
 }
 console.log(splitMonsters('goblin, orc, dragon' ));
 
 // exercise 10 ------------------------------------------------------------------------------------------------
 function decodeSecret(secret){
     const mapping = { '1': 'i', '2': 'b', '3': 'e', '4': 'a', '5': 'e' };
-    const chars = secret.split('')
+    const charsArr = secret.split('');
+    const decoded = []
+    for (let char of charsArr) {
+        if (/[0-9]/.test(char)) {
+            
+            if (mapping[char]) {
+                decoded.push(mapping[char]);
+            } else {
+                decoded.push(char);
+            }
+        } else {
+            decoded.push(char);
+        }
+    }
+    return decoded.join('')
+    } 
 
-}
-console.log(decodeSecret('Th3 s3cr3t l41r 1s und3r th3 br1dg3'));
+console.log(decodeSecret('Th3 s3cr3t la1r 1s und3r th3 br1dg3'));
 
