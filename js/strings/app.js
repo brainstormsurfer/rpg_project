@@ -25,12 +25,12 @@ function searchInventory(inventory, query) {
 console.log(searchInventory(["magic sword", "white knife", "baseball bat"], "white"));
 
 // 3
-function formatNPCName(lastName, firstName) {
+function formatNPCName(lastName, firstName) { // CR - wrong input - the input is a single string
     const swappedPlace = `${firstName} ${lastName}` 
     return swappedPlace
 }
 
-console.log(formatNPCName("wolff", "tehilla"));
+console.log(formatNPCName("wolff", "tehilla")); // CR - the input should be "Wolff, Tehilla" - one string
 
 // 4
 
