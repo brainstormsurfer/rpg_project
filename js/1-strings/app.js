@@ -44,7 +44,7 @@ console.log(formatNPCName("Downey Jr., Robert"));
 
 // 4. Quest Duration
 const parseDuration = (duration) => {
-    return `{ hours: ${duration.slice(0,duration.indexOf('h'))}, minutes: ${duration.slice(duration.indexOf(' '),duration.indexOf('m'))} }`;
+    return `{ hours: ${parseInt(duration.slice(0,duration.indexOf('h')))}, minutes: ${parseInt(duration.slice(duration.indexOf(' '),duration.indexOf('m')))} }`;
 };
 
 console.log(parseDuration("3h 45min"));
