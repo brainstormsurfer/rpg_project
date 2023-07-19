@@ -26,7 +26,7 @@ const searchInventory = (inventory, query) => {
 }
 
 const items = ["Iron Sword", "Healing Potion", "Steel Shield"];
-console.log(`["${searchInventory(["Iron Sword", "Healing Potion", "Steel Shield"], "sHiELd")}"]`);
+console.log(`["${searchInventory(items, "sHiELd")}"]`);
 // -------------------------------------------------
 
 
