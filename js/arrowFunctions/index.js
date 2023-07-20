@@ -23,7 +23,7 @@ const getTotalInventoryValue = (items) => {
 }
 
 // 4
-let sortedItems = items.sort((a,b) => b.value - a.value);
+let sortedItems = items.sort((a,b) => b.value - a.value); // CR - please don't use let for no reason
 
 // 5
 const getItemsNames = (items) => items.map((item) => item.name);
