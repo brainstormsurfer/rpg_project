@@ -29,7 +29,7 @@ const playerNameAndLevelObjArray = [
   { name: "Warrior", level: 2 },
 ];
 const combinePlayerNameLevel = playerNameAndLevelObjArray.map((obj) => {
-  return `${obj.name} - level ${obj.level}`; // CR - You need to give up the return... -> playerNameAndLevelObjArray.map((obj) => `${obj.name} - level ${obj.level}`;
+  `${obj.name} - level ${obj.level}`; 
 });
 console.log(combinePlayerNameLevel);
 
@@ -45,7 +45,7 @@ const playerName = "Hero";
 //          obj.health = newHealth } return obj }
 //     );
 const updatePlayerHealth = playerNameAndHealthObjArray.map((obj) =>
-  obj.name === playerName ? { ...obj, health: newHealth } : obj // CR- perfect!!! 💪🏻💪🏻💪🏻
+  obj.name === playerName ? { ...obj, health: newHealth } : obj 
 );
 console.log(updatePlayerHealth);
 
@@ -80,7 +80,7 @@ const playerInventoryObjArray = [
   { inventory: ["sword", "health potion"] },
   { inventory: ["axe", "shield"] },
 ];
-const retrievePlayerInventories = playerInventoryObjArray.map((obj) => [
-  ...obj.inventory, // CR - only obj.inventory no need to spread, and give meaningful names, not obj
-]);
+const retrievePlayerInventories = playerInventoryObjArray.map((player) => 
+  player.inventory 
+);
 console.log(retrievePlayerInventories);
