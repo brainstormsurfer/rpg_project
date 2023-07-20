@@ -34,7 +34,7 @@ console.log(toTitleCase("iron warrior"));
 // }
 
 function searchInventory(inventory, query) {
-    return inventory.filter(item => item.includes(query));
+    return inventory.filter(item => item.toLowerCase().includes(query.toLowerCase()));
   }
 
 console.log(
@@ -56,7 +56,7 @@ console.log(
 // }
 
 function formatNameNpc(name) {
-  return name.replace(",", "").split(" ").reverse().join(" ");
+  return name.split(", ").reverse().join(" ");
 }
 
 console.log(formatNameNpc("Goblin, Granty"));
@@ -149,7 +149,7 @@ console.log(timeDescription("Retrieve the sacred artifact from the dragon's laye
 function splitMonsters(monsters){
     // const noCommas = monsters.replaceAll(',','s')
     // const monstersArray = noCommas.split(' ')
-    return monsters.replaceAll(',','').split(' ') // CR - this will be enough - return monsters.split(', ')
+    return monsters.split(', ') 
 }
 console.log(splitMonsters('goblin, orc, dragon' ));
 
