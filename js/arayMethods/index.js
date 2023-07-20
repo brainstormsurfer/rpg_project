@@ -41,12 +41,12 @@ const players = [
 const getNames = (arr) => arr.map((item) => item.name);
 
 // 2
-const filterByLevel = (arr, level) =>
+const filterByLevel = (arr, level) => // CR - it's wrong. You should use filter.
 {
     const levelArray = [];
 	arr.map((item) => {
-		if (item.level >= level) {
-            levelArray.push(item.level)
+		if (item.level >= level) { 
+            levelArray.push(item.level) // CR - you must get used to format the file. The mess of indentations is not good.
 		}
 	});
     return levelArray;
@@ -57,7 +57,7 @@ const totalHealth = (arr) => arr.reduce((acum,cur)=> acum + cur.health, 0);
 
 // 4
 const nameLevel = (arr) => {
-    const newArr = [];
+    const newArr = []; // CR - no need to do this. I'll explain later.
     arr.map((item) => newArr.push(`${item.name} - Level ${item.level}`))
     return newArr;
 }
