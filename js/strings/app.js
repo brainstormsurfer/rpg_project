@@ -1,7 +1,7 @@
 // 1.
 function toTitleCase(name) {
         let sentence = name.split(" ");
-        for (let i = 0; i < sentence.length; i++) {
+        for (let i = 0; i < sentence.length; i++) { //should be done with map
             sentence[i] = sentence[i].charAt(0).toUpperCase() + sentence[i].slice(1);
         }
         return sentence.join(" ");    
@@ -11,38 +11,25 @@ console.log(toTitleCase('hello my name is tehilla and i d dd d'));
 
 //2.
 function searchInventory(inventory, query) {
-    for (let item of inventory) {
-        if (item.includes(query)) {
-            const itemArray = [item];
-            return itemArray;
-        } else {
-            `${query} does not exist in inventory`
-        }
-
-    }
+    return inventory.filter(item => item.toLowerCase().includes(query.toLowerCase()));
 }
 
 console.log(searchInventory(["magic sword", "white knife", "baseball bat"], "white"));
 
 // 3
-function formatNPCName(lastName, firstName) { // CR - wrong input - the input is a single string
-    const swappedPlace = `${firstName} ${lastName}` 
-    return swappedPlace
+function formatNPCName(name) { 
+    let splitName = name.split(', ');
+    return `${splitName[1]} ${splitName[0]}`;
 }
 
-console.log(formatNPCName("wolff", "tehilla")); // CR - the input should be "Wolff, Tehilla" - one string
+console.log(formatNPCName("wolff, tehilla"));
 
 // 4
 
 function parseDuration(time) {
-    const seperatedTimes = time.split;
-    for (time of seperatedTimes) {
-        if (time.includes(h)) {
-            
-        } else if (time.includes(min)){
-
-        } else if (time.includes(sec)) {
-
-        }
-    }
+    const [hours, minutes] = time.split(' ');
+    return {
+        hours: parseInt(hours),
+        minutes: parseInt(minutes),
+    };
 }
