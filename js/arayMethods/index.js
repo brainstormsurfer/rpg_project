@@ -1,5 +1,5 @@
 const players = [
-    {
+	{
 		name: 'Warrior',
 		health: 120,
 		level: 2,
@@ -13,7 +13,7 @@ const players = [
 		location: 'forest',
 		inventory: ['sword', 'health potion'],
 	},
-	
+
 	{
 		name: 'Mage',
 		health: 80,
@@ -41,42 +41,37 @@ const players = [
 const getNames = (arr) => arr.map((item) => item.name);
 
 // 2
-const filterByLevel = (arr, level) => // CR - it's wrong. You should use filter.
-{
-    const levelArray = [];
-	arr.map((item) => {
-		if (item.level >= level) { 
-            levelArray.push(item.level) // CR - you must get used to format the file. The mess of indentations is not good.
-		}
-	});
-    return levelArray;
-}
+const filterByLevel = (arr, level) => arr.filter((item) => item.level < level);
 
 // 3
-const totalHealth = (arr) => arr.reduce((acum,cur)=> acum + cur.health, 0);
+const totalHealth = (arr) => arr.reduce((acum, cur) => acum + cur.health, 0);
 
 // 4
 const nameLevel = (arr) => {
-    const newArr = []; // CR - no need to do this. I'll explain later.
-    arr.map((item) => newArr.push(`${item.name} - Level ${item.level}`))
-    return newArr;
-}
+	const newArr = []; // CR - no need to do this. I'll explain later.
+	arr.map((item) => newArr.push(`${item.name} - Level ${item.level}`));
+	return newArr;
+};
 
 // 5
 const updateHealth = (arr, newHealth, playerName) => {
-    arr.map((item) => {if (item.name === playerName) {item.health = newHealth}});
-    return arr;
-}
+	arr.map((item) => {
+		if (item.name === playerName) {
+			item.health = newHealth;
+		}
+	});
+	return arr;
+};
 
 // 6
-const filterByLocation = (arr, location) => newArr = arr.filter((item) => item.location === location);
+const filterByLocation = (arr, location) =>
+	(newArr = arr.filter((item) => item.location === location));
 
 // 7
-const averageLevel = (arr) => (arr.reduce((acum,cur)=> acum + cur.level, 0) / arr.length);
+const averageLevel = (arr) => arr.reduce((acum, cur) => acum + cur.level, 0) / arr.length;
 
 // 8
-const sortByHealth = (arr) => ([...arr].sort((a,b) => b.health-a.health));
+const sortByHealth = (arr) => [...arr].sort((a, b) => b.health - a.health);
 
 // 9
-const getInventory = (arr) => ([...arr].map((item) => (item.inventory)));
-console.log(getInventory(players));
+const getInventory = (arr) => [...arr].map((item) => item.inventory);
