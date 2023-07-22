@@ -136,17 +136,24 @@ const findUniqueSkills = (characters) => {
     return strOfSkills.slice(0,-1).split(',')
 }
 
-console.log(findUniqueSkills(characters));
+// console.log(findUniqueSkills(characters));
 
 // ================================
 
 
 // 9. Find Character with Specific Skill
 
-const findCharactersWithSkill = (characters) => {
-    
+const findCharactersWithSkill = (characters, skill) => {
+    let charactersWithSkill = []
+    characters.map((chr) => {
+      if(chr.skills.includes(skill)){
+        charactersWithSkill.push(chr)
+      }        
+    })
+    return charactersWithSkill
 }
 
+console.log(findCharactersWithSkill(characters, 'ice'));
 
 
 
