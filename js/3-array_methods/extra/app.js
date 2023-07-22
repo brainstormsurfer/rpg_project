@@ -1,10 +1,12 @@
-const characters = require('../extra/data/mockData')
+
+// --------------------------------
+    const characters = require('../extra/data/mockData')
+// --------------------------------
+
 //  1. Group Characters by Level
 
-const groupCharactersByLevel = (characters) => {
-    
-    let uniqueObj = {}
-    
+const groupCharactersByLevel = (characters) => {    
+    let uniqueObj = {}    
     for (const {name, level} of characters) {
         if (!uniqueObj[level]) {
             uniqueObj[level] = [{         
@@ -18,8 +20,50 @@ const groupCharactersByLevel = (characters) => {
     return uniqueObj
 }
 
-console.log(groupCharactersByLevel(characters));
+// console.log(groupCharactersByLevel(characters));
+
+// ================================
 
 
 // 2. Find Highest Level Character
 
+const findHighestLevelCharacter = (characters) => {
+    let highestLvlChr = {
+        level : 0
+    }
+
+    for (const chr of characters) {
+        if (chr.level > highestLvlChr.level) {
+            highestLvlChr = chr        
+        }       
+    }
+    return highestLvlChr
+}
+
+console.log(findHighestLevelCharacter(characters))
+
+// ================================
+
+
+// 3. Calculate Average Character Level
+
+const calculateAverageCharacterLevel = (characters) => {
+    const sum = characters.reduce((acc, character) => acc + character.level, 0)
+    return parseInt(sum/characters.length)
+}
+
+console.log(calculateAverageCharacterLevel(characters));
+
+// ================================
+
+
+// 4. Filter Characters by Level Range
+
+const filterCharactersByLevelRange = (characters, lowBound, hiBound) => {
+    const charactersInLevelRange = 
+}
+
+
+console.log(
+    filterCharactersByLevelRange(characters, 2, 8)   
+);
