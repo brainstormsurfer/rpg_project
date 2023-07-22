@@ -3,3 +3,5 @@ const characters = [
   { name: 'Jane', level: 5, skills: ['fire', 'ice', 'wind'] },
   { name: 'Doe', level: 2, skills: ['earth'] },
 ];
+
+module.exports = characters
