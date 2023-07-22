@@ -63,4 +63,92 @@ const filterCharactersByLevelRange = (characters, lowBound, hiBound) => {
     return characters.filter(({level}) => level >= lowBound && level <= hiBound)
 }
 
-console.log(filterCharactersByLevelRange(characters, 4, 5));
+// console.log(filterCharactersByLevelRange(characters, 4, 5));
+
+// ================================
+
+
+// 5. Count Number of Characters per Level
+
+const countCharactersPerLevel = (characters) => {
+    let charactersPerLevelObj = {}
+    
+    for (let {level} of characters) {
+        if(!charactersPerLevelObj[level]) {            
+        charactersPerLevelObj = {
+            ...charactersPerLevelObj,
+            [level] : 1
+        }} else {
+            charactersPerLevelObj[level]++
+        }
+    }
+    return charactersPerLevelObj
+}
+
+// console.log(countCharactersPerLevel(characters));
+
+// ================================
+
+
+// 6. Find Character with Most Skills
+
+const findCharacterWithMostSkills = (characters) => {
+    let mostSkillsObj = {}
+
+    for (const chr of characters) {        
+        if (!mostSkillsObj.skills || mostSkillsObj.skills.length < chr.skills.length)         
+            mostSkillsObj = chr        
+    }
+    return mostSkillsObj
+}
+
+// console.log(findCharacterWithMostSkills(characters));
+
+// ================================
+
+
+// 7. Count Total Number of Skills
+
+const totalNumberOfSkills = (characters) => {
+    let totalNumberOfSkills = 0
+    for (const {skills} of characters) {
+        totalNumberOfSkills += skills.length
+    }
+    return totalNumberOfSkills
+}
+
+// console.log(totalNumberOfSkills(characters));
+
+// ================================
+
+
+// 8. Find Unique Skills
+
+const findUniqueSkills = (characters) => {
+    let strOfSkills = ''
+    characters.forEach(({skills}) => {        
+        skills.forEach((skill) => {
+        if (!strOfSkills.includes(skill)) {
+             strOfSkills += `${skill},`
+            }
+        })
+    })
+    return strOfSkills.slice(0,-1).split(',')
+}
+
+console.log(findUniqueSkills(characters));
+
+// ================================
+
+
+// 9. Find Character with Specific Skill
+
+const findCharactersWithSkill = (characters) => {
+    
+}
+
+
+
+
+
+
