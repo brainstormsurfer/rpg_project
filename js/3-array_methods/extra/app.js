@@ -40,7 +40,7 @@ const findHighestLevelCharacter = (characters) => {
     return highestLvlChr
 }
 
-console.log(findHighestLevelCharacter(characters))
+// console.log(findHighestLevelCharacter(characters))
 
 // ================================
 
@@ -52,7 +52,7 @@ const calculateAverageCharacterLevel = (characters) => {
     return parseInt(sum/characters.length)
 }
 
-console.log(calculateAverageCharacterLevel(characters));
+// console.log(calculateAverageCharacterLevel(characters));
 
 // ================================
 
@@ -60,10 +60,7 @@ console.log(calculateAverageCharacterLevel(characters));
 // 4. Filter Characters by Level Range
 
 const filterCharactersByLevelRange = (characters, lowBound, hiBound) => {
-    const charactersInLevelRange = 
+    return characters.filter(({level}) => level >= lowBound && level <= hiBound)
 }
 
-
-console.log(
-    filterCharactersByLevelRange(characters, 2, 8)   
-);
+console.log(filterCharactersByLevelRange(characters, 4, 5));
