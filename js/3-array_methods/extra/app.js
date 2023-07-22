@@ -4,6 +4,7 @@
 // --------------------------------
 
 //  1. Group Characters by Level
+console.log("\n1. Group Characters by Level");
 
 const groupCharactersByLevel = (characters) => {    
     let uniqueObj = {}    
@@ -20,12 +21,13 @@ const groupCharactersByLevel = (characters) => {
     return uniqueObj
 }
 
-// console.log(groupCharactersByLevel(characters));
+console.log(groupCharactersByLevel(characters));
 
 // ================================
 
 
 // 2. Find Highest Level Character
+console.log("\n2. Find Highest Level Character");
 
 const findHighestLevelCharacter = (characters) => {
     let highestLvlChr = {
@@ -40,35 +42,39 @@ const findHighestLevelCharacter = (characters) => {
     return highestLvlChr
 }
 
-// console.log(findHighestLevelCharacter(characters))
+console.log(findHighestLevelCharacter(characters))
 
 // ================================
 
 
 // 3. Calculate Average Character Level
+console.log("\n3. Calculate Average Character Level");
 
 const calculateAverageCharacterLevel = (characters) => {
     const sum = characters.reduce((acc, character) => acc + character.level, 0)
     return parseInt(sum/characters.length)
 }
 
-// console.log(calculateAverageCharacterLevel(characters));
+console.log(calculateAverageCharacterLevel(characters));
 
 // ================================
 
 
 // 4. Filter Characters by Level Range
+console.log("\n4. Filter Characters by Level Range");
+
 
 const filterCharactersByLevelRange = (characters, lowBound, hiBound) => {
     return characters.filter(({level}) => level >= lowBound && level <= hiBound)
 }
 
-// console.log(filterCharactersByLevelRange(characters, 4, 5));
+console.log(filterCharactersByLevelRange(characters, 4, 5));
 
 // ================================
 
 
 // 5. Count Number of Characters per Level
+console.log("\n5. Count Number of Characters per Level");
 
 const countCharactersPerLevel = (characters) => {
     let charactersPerLevelObj = {}
@@ -85,12 +91,13 @@ const countCharactersPerLevel = (characters) => {
     return charactersPerLevelObj
 }
 
-// console.log(countCharactersPerLevel(characters));
+console.log(countCharactersPerLevel(characters));
 
 // ================================
 
 
 // 6. Find Character with Most Skills
+console.log("\n6. Find Character with Most Skills");
 
 const findCharacterWithMostSkills = (characters) => {
     let mostSkillsObj = {}
@@ -102,12 +109,13 @@ const findCharacterWithMostSkills = (characters) => {
     return mostSkillsObj
 }
 
-// console.log(findCharacterWithMostSkills(characters));
+console.log(findCharacterWithMostSkills(characters));
 
 // ================================
 
 
 // 7. Count Total Number of Skills
+console.log("\n7. Count Total Number of Skills");
 
 const totalNumberOfSkills = (characters) => {
     let totalNumberOfSkills = 0
@@ -117,12 +125,13 @@ const totalNumberOfSkills = (characters) => {
     return totalNumberOfSkills
 }
 
-// console.log(totalNumberOfSkills(characters));
+console.log(totalNumberOfSkills(characters));
 
 // ================================
 
 
 // 8. Find Unique Skills
+console.log("\n8. Find Unique Skills");
 
 const findUniqueSkills = (characters) => {
     let strOfSkills = ''
@@ -136,12 +145,13 @@ const findUniqueSkills = (characters) => {
     return strOfSkills.slice(0,-1).split(',')
 }
 
-// console.log(findUniqueSkills(characters));
+console.log(findUniqueSkills(characters));
 
 // ================================
 
 
 // 9. Find Character with Specific Skill
+console.log("\n9. Find Character with Specific Skill");
 
 const findCharactersWithSkill = (characters, skill) => {
     let charactersWithSkill = []
