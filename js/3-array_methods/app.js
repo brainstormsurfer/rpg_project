@@ -23,7 +23,7 @@ console.log(totalPlayersHealth);
 
 
 // 4. Combine Player Names and Levels
-const namesAndLevels = (players) => players.map(player => `{ name: ${player.name}, level: ${player.level}}`)
+const namesAndLevels = (players) => players.map(({name, level}) => `{ name: ${name}, level: ${level}}`)
 
 console.log(namesAndLevels(players));
 // ================================
@@ -58,7 +58,7 @@ console.log(playersDescOrder(players));
 
 
 // 9. Retrieve Player Inventories
-const inventoriesArr = players.map(player => player.inventory)
+const inventoriesArr = players.map(({inventory}) => inventory)
 
 console.log(inventoriesArr);
 // ================================
