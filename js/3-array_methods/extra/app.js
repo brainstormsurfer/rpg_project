@@ -63,7 +63,6 @@ console.log(calculateAverageCharacterLevel(characters));
 // 4. Filter Characters by Level Range
 console.log("\n4. Filter Characters by Level Range");
 
-
 const filterCharactersByLevelRange = (characters, lowBound, hiBound) => {
     return characters.filter(({level}) => level >= lowBound && level <= hiBound)
 }
