@@ -31,15 +31,22 @@ console.log("\n2. Find Highest Level Character");
 
 const findHighestLevelCharacter = (characters) => {
     let highestLvlChr = {
-        level : 0
+        highestLvlCharArr : []
     }
+    let highest = 0
 
     for (const chr of characters) {
-        if (chr.level > highestLvlChr.level) {
-            highestLvlChr = chr        
-        }       
-    }
-    return highestLvlChr
+            if (highest === chr.level) {
+                highestLvlChr.highestLvlCharArr.push(chr)
+            } else if (highest < chr.level) {
+                highest = chr.level
+                highestLvlChr.highestLvlCharArr.shift(chr)
+                highestLvlChr.highestLvlCharArr.push(chr)
+            }
+        }
+        return highestLvlChr.highestLvlCharArr.length > 1 ? 
+        highestLvlChr.highestLvlCharArr :
+        highestLvlChr.highestLvlCharArr[0]
 }
 
 console.log(findHighestLevelCharacter(characters))
