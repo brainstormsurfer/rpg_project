@@ -33,3 +33,4 @@ function parseDuration(time) {
         minutes: parseInt(minutes),
     };
 }
+

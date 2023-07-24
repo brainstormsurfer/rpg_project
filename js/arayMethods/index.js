@@ -47,11 +47,9 @@ const filterByLevel = (arr, level) => arr.filter((item) => item.level < level);
 const totalHealth = (arr) => arr.reduce((acum, cur) => acum + cur.health, 0);
 
 // 4
-const nameLevel = (arr) => {
-	const newArr = []; // CR - no need to do this. I'll explain later.
-	arr.map((item) => newArr.push(`${item.name} - Level ${item.level}`));
-	return newArr;
-};
+const nameLevel = (arr) => 
+    newArr = arr.map((item) => newArr.push(`${item.name} - Level ${item.level}`));
+;
 
 // 5
 const updateHealth = (arr, newHealth, playerName) => {
