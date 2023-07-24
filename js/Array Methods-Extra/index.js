@@ -5,26 +5,42 @@ const characters = [
   { name: "Doe", level: 2 },
 ];
 
-const groupCharactersByLevel = (characters) => {
-  const characterByLevel = {};
-  characters.forEach((character) => {
-    const { level, name } = character;
-    if (!characterByLevel[level]) {
-      characterByLevel[level] = [];
-    }
-    characterByLevel[level].push({ name, level });
-  });
+// const groupCharactersByLevel = (characters) => {
+//   const characterByLevel = {};
+//   characters.forEach((character) => {
+//     const { level, name } = character;
+//     if (!characterByLevel[level]) {
+//       characterByLevel[level] = [];
+//     }
+//     characterByLevel[level].push({ name, level });
+//   });
 
-  return characterByLevel;
+//   return characterByLevel;
+// };
+
+const groupCharactersByLevel = (characters) => {
+  return characters.reduce((acc, character) => {
+    const { level, name } = character;
+    if (!acc[level]) {
+      acc[level] = [];
+    }
+    acc[level].push({ name, level });
+    return acc;
+  }, {});
 };
+
 console.log(groupCharactersByLevel(characters));
 
 // Exercise 2 - highest level character----------------------------------------------------------------------------------------
-const characters2 = [    { name: 'John', level: 2 },    { name: 'Jane', level: 5 }, { name: 'Daniel', level: 3 }, { name: 'Tal', level: 4 } ];
- function highestLevelCharacter(characters){
-    return [...characters].sort((a,b) => a.level - b.level)[characters.length-1];
- }
-
-  
-
+const characters2 = [
+  { name: "John", level: 2 },
+  { name: "Jane", level: 5 },
+  { name: "Daniel", level: 3 },
+  { name: "Tal", level: 5 },
+];
+const highestLevelCharacter = (characters) =>
+  [...characters].sort((a, b) => b.level - a.level)[0];
 console.log(highestLevelCharacter(characters2));
+
+// Exercise 3 - calculate average character level -----------------------------------------------------------------
+

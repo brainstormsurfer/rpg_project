@@ -4,7 +4,7 @@ const playerNameObjArray = [
   { name: "Warrior" },
   { name: "Mage" },
 ];
-const RetrievePlayerName = playerNameObjArray.map((obj) => obj.name);
+const RetrievePlayerName = playerNameObjArray.map((player) => player.name);
 console.log(RetrievePlayerName);
 
 // Exercise 2 - filters player by level -------------------------------------------------
@@ -28,9 +28,8 @@ const playerNameAndLevelObjArray = [
   { name: "Hero", level: 1 },
   { name: "Warrior", level: 2 },
 ];
-const combinePlayerNameLevel = playerNameAndLevelObjArray.map((obj) => {
-  `${obj.name} - level ${obj.level}`; 
-});
+const combinePlayerNameLevel = playerNameAndLevelObjArray.map(({name,level}) => 
+  `${name} - level ${level}`);
 console.log(combinePlayerNameLevel);
 
 // Exercise 5 - update player health ---------------------------------------------------------------------------------
