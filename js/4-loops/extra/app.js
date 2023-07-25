@@ -87,6 +87,7 @@ console.log(battle(40, 20, 50, 15));
 //----------------------------
 
 console.log("\n3. Find Enemies");
+
 const findEnemies = (boardCurrentState) => {
   const enemiesPosition = [];
   for (let rowIndex = 0; rowIndex < boardCurrentState.length; rowIndex++) {
