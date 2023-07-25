@@ -21,9 +21,8 @@ const findQuestByName = (arrayOfQuests, questName) => {
     let quest = arrayOfQuests[i];
     if (quest.name === questName) {
       return quest;
-    }
-  }
-  // CR - return null if there is no match
+    } 
+  } return null 
 };
 console.log(findQuestByName(playerQuestArray, "Quest 2"));
 
