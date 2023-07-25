@@ -4,9 +4,7 @@ const quests = [
   { name: "Quest 3", experience: 75, reward: 75 },
 ];
 
-// console.log("
-// 1. Calculate Total Player Experience
-// ")
+console.log("\n1. Calculate Total Player Experience")
 const calcTotalPlayerXp = (quests) => {
   let totalXp = 0;
   for (const quest of quests) {
@@ -15,24 +13,20 @@ const calcTotalPlayerXp = (quests) => {
   return totalXp;
 };
 
-// console.log(calcTotalPlayerXp(quests))
+console.log(calcTotalPlayerXp(quests))
 // ---------------------------------------
 
-// console.log("
-// 2. Find Quest By Name
-// ")
+console.log("\n2. Find Quest By Name")
 const findQuestByName = (quests, questName) => {
   for (const quest of quests) {
     if (quest.name === questName) return quest;
   }
 };
 
-// console.log(findQuestByName(quests, "Quest 2"));
+console.log(findQuestByName(quests, "Quest 2"));
 // ---------------------------------------
 
-// console.log("
-// 3. Sort Quests by Experience
-// ")
+console.log("\n3. Sort Quests by Experience")
 const sortQuestsByXp = (quests) => {
   let arr = quests;
   const n = quests.length;
@@ -49,12 +43,10 @@ const sortQuestsByXp = (quests) => {
   return arr;
 };
 
-// console.log(sortQuestsByXp(quests));
+console.log(sortQuestsByXp(quests));
 // ---------------------------------------
 
-// console.log("
-// 4. Find Enemies with High Health
-// ")
+console.log("\n4. Find Enemies with High Health")
 const enemies = [
   { name: "Enemy 1", health: 80, power: 50 },
   { name: "Enemy 2", health: 120, power: 80 },
@@ -71,12 +63,10 @@ const findEnemiesWithHighHealth = (enemies, healthThreshold) => {
   return arr;
 };
 
-// console.log(findEnemiesWithHighHealth(enemies, 100));
+console.log(findEnemiesWithHighHealth(enemies, 100));
 //---------------------------------------
 
-// console.log("
-// 5. Calculate Matrix Sum
-// ")
+console.log("\n5. Calculate Matrix Sum")
 const calcMatrix = (matrix) => {
   let sum = 0;
 
@@ -88,18 +78,16 @@ const calcMatrix = (matrix) => {
   return sum;
 };
 
-// console.log(
-//   calcMatrix([
-//     [1, 2, 3],
-//     [4, 5, 6],
-//     [7, 8, 9],
-//   ])
-// );
+console.log(
+  calcMatrix([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ])
+);
 //---------------------------------------
 
-// console.log("
-// 6. Find Maximum Value in Matrix
-// ")
+console.log("\n6. Find Maximum Value in Matrix")
 const findMatrixMaxNum = (matrix) => {
   let max = 0
   for (const row of matrix) {
@@ -118,9 +106,7 @@ console.log(findMatrixMaxNum([
   ]));
 //---------------------------------------
 
-// console.log("
-// 7. Count Even Numbers in Matrix
-// ")
+console.log("\n7. Count Even Numbers in Matrix")
 const findEvenNums = (matrix) => {
   let evenNums = [];
 
@@ -133,18 +119,16 @@ const findEvenNums = (matrix) => {
   return evenNums;
 };
 
-// console.log(
-//   findEvenNums([
-//     [1, 2, 3],
-//     [4, 5, 6],
-//     [7, 8, 9],
-//   ])
-// );
+console.log(
+  findEvenNums([
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+  ])
+);
 //---------------------------------------
 
-// console.log("
-// 8. Find Quests with High Rewards
-// ")
+console.log("\n8. Find Quests with High Rewards")
 const findQuestWithHighRewards = (quests, threshold) => {
       let higherThanThresholdQuestArr = []
       for (const quest of quests) {      
@@ -157,9 +141,7 @@ const findQuestWithHighRewards = (quests, threshold) => {
 console.log(findQuestWithHighRewards(quests, 85))
 //---------------------------------------
 
-// console.log("
-// 9. Calculate Total Enemy Power
-// ")
+console.log("\n9. Calculate Total Enemy Power")
 
 const calcTotalEnemiesPower = (enemies) => {
     let totalPower = 0
