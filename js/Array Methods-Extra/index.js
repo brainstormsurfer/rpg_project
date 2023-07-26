@@ -10,8 +10,9 @@ const characters = [
   { name: "Jane", level: 5 },
   { name: "Doe", level: 2 },
 ];
-const groupedCharObj = {}; // CR: The `groupedCharObj` variable should be declared within the function body to ensure it doesn't maintain state between function calls.
+ 
 const groupCharByLevel = (arrayOfCharacters) => {
+  const groupedCharObj = {};
   for (const char of arrayOfCharacters) {
     if (groupedCharObj[char.level]) {
       groupedCharObj[char.level].push(char);
@@ -38,12 +39,12 @@ const characters2 = [
 ];
 
 const highestLevelChar = (arrayOfCharacters) =>
-  arrayOfCharacters.reduce((acc, char) => { // CR: The `reduce` method should have an initial value to make sure the function works correctly even when the array is empty.
+  arrayOfCharacters.reduce((acc, char) => { 
     if (acc.level < char.level) {
       return char;
     }
     return acc;
-  });
+  },arrayOfCharacters[0]);
 console.log(highestLevelChar(characters2));
 
 // Exercise 3 -- calculate average characters level --------------------------------------

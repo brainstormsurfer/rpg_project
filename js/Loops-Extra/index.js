@@ -48,7 +48,7 @@ const battleSimulation = (
   enemyCurrHp,
   enemyAttackPwr
 ) => {
-  while (playerCurrHp > 0 || enemyCurrHp > 0) { // CR - It should be && instead of ||, otherwise, the loop will continue even when one player's HP is below or equals to 0
+  while (playerCurrHp > 0 && enemyCurrHp > 0) { 
     enemyCurrHp = enemyCurrHp - playerAttackPwr;
     playerCurrHp = playerCurrHp - enemyAttackPwr;
     if (playerCurrHp <= 0) {
