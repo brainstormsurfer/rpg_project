@@ -1,25 +1,43 @@
-/**
- * This object represents the game world, containing all players, enemies, items and NPCs
- */
-  
-const gameWorld = {
-    players: [{name: 'tehilla'}, {health: 2}, {position: {x: 2, y:5}}, {inventory: ['lolo', 'kiki']}],
-    enemies: [{name: 'moster'}, {health: 2}, {position: {x: 2, y:5}}, {inventory: ['lolo', 'kiki']}],
-    items: [{name : 'stick'}, {effect: 'bash'}],
-    npcs: [],
-} 
-
+const game = {
+    
+    /**
+     * This object represents the game world, containing all players, enemies, items and NPCs
+    */
+   
+   gameWorld : {
+       players: [[{name: 'tehilla'}, {health: 2}, {position: {x: 2, y:5}}, {inventory: ['lolo', 'kiki']}]],
+       enemies: [[{name: 'moster'}, {health: 2}, {position: {x: 2, y:5}}, {inventory: ['lolo', 'kiki']}]],
+       items: [{name : 'stick'}, {effect: 'bash'}],
+       npcs: [],
+    },
+    
     /**
      * Add a new player to the game world
      * @param {Object} player - The player object
-     */
-    addPlayer: function (player) { },
-  
-    /**
-     * Remove a player from the game world
-     * @param {Object} player - The player object
-     */
-    removePlayer: function (player) { },
+    */
+   
+   addPlayer: function (player) { 
+       this.gameWorld.players.push(
+           [...player]
+           )
+           return;
+        },
+        
+        
+        /**
+         * Remove a player from the game world
+         * @param {Object} player - The player object
+        */
+       
+       addPlayer: function (player) { 
+           this.gameWorld.players.push(
+               [...player]
+               )
+               return;
+            },
+            
+            
+    };
   
     /**
      * Add a new enemy to the game world
@@ -140,4 +158,4 @@ const gameWorld = {
      */
     createNPC: function (name, health, position, inventory, dialog) { },
   
-  };
+
