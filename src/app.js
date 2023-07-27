@@ -26,63 +26,26 @@ gameWorld : {
 },
 
 
-    /**
-     * Add a new player to the game world
-     * @param {Object} player - The player object
-*/
-
-// ?? ------------ RAN - START OF SNIPPET ----------------
-
     addPlayer: player => {this.gameWorld.players.push(player)},  
 
-    /**
-     * Remove a player from the game world
-     * @param {Object} player - The player object
-     */
     removePlayer : player => {this.gameWorld.players.filter(({name}) => player.name !== name)},
   
-    /**
-     * Add a new enemy to the game world
-     * @param {Object} enemy - The enemy object
-     */
     addEnemy : enemy => {this.gameWorld.enemies.push([enemy])},
-    /**
-     * Remove an enemy from the game world
-     * @param {Object} enemy - The enemy object
-     */
+
     removeEnemy : enemy => {this.gameWorld.enemies.filter(({name}) => enemy.name !== name)},
   
-    /**
-     * Add a new item to the game world
-     * @param {Object} item - The item object
-     */
     addItem : item => {this.gameWorld.items.push([item])},
   
-    /**
-     * Remove an item from the game world
-     * @param {Object} item - The item object
-     */
     removeItem : item => {this.gameWorld.items.filter(({name}) => item.name !== name)},
     
-    /**
-     * Add a new NPC to the game world
-     * @param {Object} npc - The NPC object
-    */
-   addNPC : npc => {this.gameWorld.npcs.push({npc})},
+    addNPC : npc => {this.gameWorld.npcs.push({npc})},
    
-   /**
-    * Remove an NPC from the game world
-     * @param {Object} npc - The NPC object
-   */
-  removeNPC : npc => {this.gameWorld.npcs.filter(({name}) => npc.name !== name)},
+    removeNPC : npc => {this.gameWorld.npcs.filter(({name}) => npc.name !== name)},
   
-  /**
-   * Check for encounters between a player and enemies
-   * @param {Object} player - The player object
-  */
-  
-  // ?? ------------ RAN - END OF SNIPPET ----------------
-
+    /**
+    * Check for encounters between a player and enemies
+    * @param {Object} player - The player object
+    */
     
     checkForEncounters: function (player) { },
   
