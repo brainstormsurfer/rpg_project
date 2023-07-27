@@ -3,84 +3,87 @@ const game = {
  * This object represents the game world, containing all players, enemies, items and NPCs
  */
   
-gameWorld = {
-    players: [{name: 'tehilla'}, {health: 2}, {position: {x: 2, y:5}}, {inventory: ["sword", "health potion"]},
-    {name: 'shady'}, {health: 4}, {position: {x: 3, y:6}}, {inventory: ["axe", "shield"]},
-    {name: 'daniel'}, {health: 6}, {position: {x: 2, y:4}}, {inventory: ["bow", "arrows"]},
-    {name: 'ran'}, {health: 8}, {position: {x: 3, y:5}}, {inventory: ["dagger", "lockpick"]}],
-    enemies: [{name: 'orc'}, {health: 2}, {position: {x: 2, y:5}},
-    {name: 'troll'}, {health: 2}, {position: {x: 4, y:5}},
-    {name: 'zombie'}, {health: 2}, {position: {x: 6, y:5}},
-    {name: 'werewolf'}, {health: 2}, {position: {x: 2, y:5}}],
+gameWorld : {
+    players: [
+    {name: 'tehilla', health: 2, position: {x: 2, y:5}, inventory: ["sword", "health potion"]},
+    {name: 'shady', health: 4, position: {x: 3, y:6}, inventory: ["axe", "shield"]},
+    {name: 'daniel', health: 6, position: {x: 2, y:4}, inventory: ["bow", "arrows"]},
+    {name: 'ran', health: 8, position: {x: 3, y:5}, inventory: ["dagger", "spear"]}
+    ],
+    enemies: [
+    {name: 'orc', health: 2, position: {x: 2, y:5}},
+    {name: 'troll', health: 2, position: {x: 4, y:5}},
+    {name: 'zombie', health: 2, position: {x: 6, y:5}},
+    {name: 'werewolf', health: 2, position: {x: 2, y:5}}
+    ],
     items: [
-        {name : 'stick'}, {effect: 'bash'},
-        {name : 'hammer'}, {effect: 'smash'},
-        {name : 'shield'}, {effect: 'block'},
-        {name : 'crossbow'}, {effect: 'range'},
+    {name : 'stick', effect: 'bash'},
+    {name : 'hammer', effect: 'smash'},
+    {name : 'shield', effect: 'block'}, 
+    {name : 'crossbow', effect: 'range'}
 ],
     npcs: [],
-} 
+},
+
 
     /**
      * Add a new player to the game world
      * @param {Object} player - The player object
-*/}
-    addPlayer: function (player) { 
-        this.gameWorld.players.push(
-            [...player]
-            )
-            return;
-         },
-         
-         
- };
+*/
+
+// ?? ------------ RAN - START OF SNIPPET ----------------
+
+    addPlayer: player => {this.gameWorld.players.push(player)},  
 
     /**
      * Remove a player from the game world
      * @param {Object} player - The player object
      */
-    removePlayer: function (player) { },
+    removePlayer : player => {this.gameWorld.players.filter(({name}) => player.name !== name)},
   
     /**
      * Add a new enemy to the game world
      * @param {Object} enemy - The enemy object
      */
-    addEnemy: function (enemy) { },
-  
+    addEnemy : enemy => {this.gameWorld.enemies.push([enemy])},
     /**
      * Remove an enemy from the game world
      * @param {Object} enemy - The enemy object
      */
-    removeEnemy: function (enemy) { },
+    removeEnemy : enemy => {this.gameWorld.enemies.filter(({name}) => enemy.name !== name)},
   
     /**
      * Add a new item to the game world
      * @param {Object} item - The item object
      */
-    addItem: function (item) { },
+    addItem : item => {this.gameWorld.items.push([item])},
   
     /**
      * Remove an item from the game world
      * @param {Object} item - The item object
      */
-    removeItem: function (item) { },
-  
+    removeItem : item => {this.gameWorld.items.filter(({name}) => item.name !== name)},
+    
     /**
      * Add a new NPC to the game world
      * @param {Object} npc - The NPC object
-     */
-    addNPC: function (npc) { },
-  
-    /**
-     * Remove an NPC from the game world
+    */
+   addNPC : npc => {this.gameWorld.npcs.push({npc})},
+   
+   /**
+    * Remove an NPC from the game world
      * @param {Object} npc - The NPC object
-     */
-    removeNPC: function (npc) { },
+   */
+  removeNPC : npc => {this.gameWorld.npcs.filter(({name}) => npc.name !== name)},
   
-    /**
-     * Check for encounters between a player and enemies
-     * @param {Object} player - The player object
-     */
+  /**
+   * Check for encounters between a player and enemies
+   * @param {Object} player - The player object
+  */
+  
+  // ?? ------------ RAN - END OF SNIPPET ----------------
+
+    
     checkForEncounters: function (player) { },
   
     /**
@@ -90,6 +93,7 @@ gameWorld = {
      */
     combat: function (player, enemy) { },
   
+
     /**
      * Interact with an NPC in the game world
      * @param {Object} player - The player object
@@ -159,5 +163,5 @@ gameWorld = {
      * @returns {Object} The new NPC
      */
     createNPC: function (name, health, position, inventory, dialog) { },{
-
+    
   };
