@@ -1,68 +1,77 @@
+// Exercise 1 ---------------------------------
 const game = {
-    /**
- * This object represents the game world, containing all players, enemies, items and NPCs
- */
-  
-gameWorld : {
+  gameWorld: {
     players: [
-    {name: 'tehilla', health: 2, position: {x: 2, y:5}, inventory: ["sword", "health potion"]},
-    {name: 'shady', health: 4, position: {x: 3, y:6}, inventory: ["axe", "shield"]},
-    {name: 'daniel', health: 6, position: {x: 2, y:4}, inventory: ["bow", "arrows"]},
-    {name: 'ran', health: 8, position: {x: 3, y:5}, inventory: ["dagger", "spear"]}
+      {
+        name: "tehilla",
+        health: 2,
+        position: { x: 2, y: 5 },
+        inventory: ["sword", "health potion"],
+      },
+      {
+        name: "shady",
+        health: 4,
+        position: { x: 3, y: 6 },
+        inventory: ["axe", "shield"],
+      },
+      {
+        name: "daniel",
+        health: 6,
+        position: { x: 2, y: 4 },
+        inventory: ["bow", "arrows"],
+      },
+      {
+        name: "ran",
+        health: 8,
+        position: { x: 3, y: 5 },
+        inventory: ["dagger", "spear"],
+      },
     ],
-    enemies: [
-    {name: 'orc', health: 2, position: {x: 2, y:5}},
-    {name: 'troll', health: 2, position: {x: 4, y:5}},
-    {name: 'zombie', health: 2, position: {x: 6, y:5}},
-    {name: 'werewolf', health: 2, position: {x: 2, y:5}}
-    ],
-    items: [
-    {name : 'stick', effect: 'bash'},
-    {name : 'hammer', effect: 'smash'},
-    {name : 'shield', effect: 'block'}, 
-    {name : 'crossbow', effect: 'range'}
-],
-    npcs: [],
-},
+  },
+  enemies: [
+    { name: "orc", health: 2, position: { x: 2, y: 5 } },
+    { name: "troll", health: 2, position: { x: 4, y: 5 } },
+    { name: "zombie", health: 2, position: { x: 6, y: 5 } },
+    { name: "werewolf", health: 2, position: { x: 2, y: 5 } },
+  ],
 
+  items: [
+    { name: "stick", effect: "bash" },
+    { name: "hammer", effect: "smash" },
+    { name: "shield", effect: "block" },
+    { name: "crossbow", effect: "range" },
+  ],
 
-    addPlayer: player => {this.gameWorld.players.push(player)},  
+  npcs: [],
 
-    removePlayer : player => {this.gameWorld.players.filter(({name}) => player.name !== name)},
-  
-    addEnemy : enemy => {this.gameWorld.enemies.push([enemy])},
+  //   Exercise 2 ------
 
-    removeEnemy : enemy => {this.gameWorld.enemies.filter(({name}) => enemy.name !== name)},
-  
-    addItem : item => {this.gameWorld.items.push([item])},
-  
-    removeItem : item => {this.gameWorld.items.filter(({name}) => item.name !== name)},
-    
-    addNPC : npc => {this.gameWorld.npcs.push({npc})},
-   
-    removeNPC : npc => {this.gameWorld.npcs.filter(({name}) => npc.name !== name)},
-  
-    /**
-    * Check for encounters between a player and enemies
-    * @param {Object} player - The player object
-    */
-    
-    checkForEncounters: function (player) { },
-  
-    /**
-     * Simulate combat between a player and an enemy
-     * @param {Object} player - The player object
-     * @param {Object} enemy - The enemy object
-     */
-    combat: function (player, enemy) { },
-  
+  addPlayer: function (player) {
+    this.players.push(player);
+  },
 
-    /**
-     * Interact with an NPC in the game world
-     * @param {Object} player - The player object
-     * @param {Object} npc - The NPC object
-     */
-    talkToNPC: function (player, npc) { },
+  removePlayer: function (playerName) {
+    this.players = this.players.filter((player) => player.name !== playerName);
+  },
+
+  addEnemy: function (enemy) {
+    this.enemies.push(enemy);
+  },
+
+  removeEnemy: function (enemyName) {
+    this.enemies.filter((enemy) => enemy.name !== enemyName);
+  },
+
+  addItem: function (item) {
+    this.items.push(item);
+  },
+
+  removeItem: function (itemName) {
+    this.items = this.items.filter((item) => item.name !== itemName);
+  },
+
+  // Exercise 3 -------------------------------------------------------------------------------
+
   
   
     /**
