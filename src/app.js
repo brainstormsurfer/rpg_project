@@ -41,7 +41,10 @@ gameWorld : {
     addNPC : npc => {this.gameWorld.npcs.push({npc})},
    
     removeNPC : npc => {this.gameWorld.npcs.filter(({name}) => npc.name !== name)},
-  
+}
+
+
+
     /**
     * Check for encounters between a player and enemies
     * @param {Object} player - The player object
@@ -128,4 +131,3 @@ gameWorld : {
     createNPC: function (name, health, position, inventory, dialog) { },{
     
   };
-}
