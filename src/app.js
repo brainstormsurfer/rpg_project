@@ -125,7 +125,6 @@ gameWorld : {
      * @param {string} dialog - The dialog of the NPC
      * @returns {Object} The new NPC
      */
-    createNPC: function (name, health, position, inventory, dialog) { },{
+    createNPC: function (name, health, position, inventory, dialog) { },
     
   };
-}
