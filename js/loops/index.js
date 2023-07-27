@@ -19,10 +19,10 @@ const questName = 'Quest 2';
 const findByName = (name, arr) => {
     for (obj of arr) {
         if (obj.name === name) {
-            return obj;
+            return obj || null;
         }
     }
-	// CR - return null if there is no match
+	
 }
 
 // Exercise 3: Sort Quests by Experience
@@ -39,10 +39,10 @@ const sortByExperience = (arr) => {
           for (let i = 0; i < arr.length - 1; i++) {
             if (arr[i].experience > arr[i + 1].experience) {
               [arr[i], arr[i+1]] = [arr[i+1], arr[i]];
-              sorted = true; // CR - no need
+              sorted = true; 
             }
           }
-        } while (sorted); // CR - not the right use of while... It's useless here
+        } while (sorted); 
       
         return arr;
       };
@@ -74,9 +74,9 @@ const matrix = [
 
 const matrixSum = (arr) => {
     let sum = 0;
-    for (obj of arr) { // CR - Error: Missing "let" before "obj".
-        for (item in obj) { // CR - Error: Should use "for...of" instead of "for...in". Also missing "let" before "item".
-            sum = obj[item] + sum ; 
+    for (let childArr of arr) { 
+        for (let item of childArr) { 
+            sum = childArr[item] + sum ; 
         }
     }
     return sum;
@@ -91,8 +91,8 @@ const matrixToFindMax = [
 
 const matrixMax = (arr) => {
     let top = 0; 
-    for (childArr of arr) { // CR - Error: Missing "let" before "childArr".
-        for (item of childArr) { // CR - Error: Missing "let" before "item".
+    for (let childArr of arr) { 
+        for (let item of childArr) { 
             if (item > top) {top = item};
         }
     }
@@ -110,8 +110,8 @@ const matrixToCountEven = [
 
 const countEvenMatrix = (arr) => {
     let count = 0;
-    for (childArr of arr) { // CR - Error: Missing "let" before "childArr".
-        for (item of childArr) { // CR - Error: Missing "let" before "item".
+    for (let childArr of arr) { 
+        for (let item of childArr) { 
             if (item % 2 === 0) {count++}
         }
     }
@@ -129,7 +129,7 @@ const rewardThreshold = 80;
 
 const highRewards = (arr, high) => {
     const newArr = [];
-    for (obj of arr) {// CR - Error: Missing "let"
+    for (let obj of arr) {
         if (obj.reward > high) {
             newArr.push(obj);
         }
@@ -146,7 +146,7 @@ const enemyObjects = [
 
 const calcPower = (arr) => {
     let total = 0;
-    for (obj of arr) {// CR - Error: Missing "let"
+    for (let obj of arr) {
         total += obj.power;        
     }
     return total;
