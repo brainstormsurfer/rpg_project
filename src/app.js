@@ -165,3 +165,4 @@ gameWorld : {
     createNPC: function (name, health, position, inventory, dialog) { },{
     
   };
+}
