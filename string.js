@@ -31,7 +31,7 @@
 // // }
 
 
-// // console.log(searchInventory(['New York', 'Tokyo', 'Paris', 'London','thong'], "on"));
+// // console.log(searchInventory(['New York', 'Tokyo', 'Paris', 'London','thong'], "on"));gi
 
 // // //3
 
