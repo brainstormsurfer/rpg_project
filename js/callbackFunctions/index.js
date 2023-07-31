@@ -1,9 +1,16 @@
 // 1
 function processEnemies(arr, callback) {
     let newEnemies = [];
-    if (Array.isArray(arr)) {
+    if (Array.isArray(arr)) { 
+        /*
+            CR - should br:
+            if (!Array.isArray(enemies)) {
+                throw new Error('Expected an array of enemies');
+            }
+        */
+    
         for (item of arr) {
-            if (item.name && item.health){
+            if (item.name && item.health){ // CR - should be - if (enemy.hasOwnProperty('name') && enemy.hasOwnProperty('health')) - because what you did here is just check if the values are not falsey, and the can exist but be empty
                 newEnemies.push(item);
             } else {return `Enemy with ID of ${item.id} is not in the correct structure`}
         }
