@@ -17,7 +17,8 @@ const createPlayerCharacter = (characterName, initialLevel) => {
         addXp: function (updateXpBy) {
             this.xp += updateXpBy
             console.log(`Added ${updateXpBy}xp. ${this.name} current xp: ${this.xp}`)
-        }
+        }, 
+        inventory : {}
     }
     return character
 }
@@ -40,15 +41,16 @@ const createInventory = () => {
     return inventory
 }
 
-// const player1 = createPlayerCharacter("Doobi", 10)
-// console.log(player1);
-// player1.levelUp()
-// player1.levelUp()
-// player1.addXp(5)
-// player1.addXp(15)
-// console.log(player1);
+const player1 = createPlayerCharacter("Doobi", 10)
+console.log(player1);
+player1.levelUp()
+player1.levelUp()
+player1.addXp(5)
+player1.addXp(15)
+console.log(player1);
 
-const inventory = createInventory()
+player1.inventory = createInventory()
+const {inventory} = player1
 inventory.addItem('axe')
 inventory.addItem('book')
 console.log(inventory.getItems())
