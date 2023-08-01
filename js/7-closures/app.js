@@ -30,7 +30,7 @@ const createInventory = () => {
             console.log(`${item} has been added to inventory`);
         },
         removeItem : function(item) {
-            this.items = this.items.filter((itemToDelete) => item === itemToDelete)
+            this.items = this.items.filter((itemToDelete) => item !== itemToDelete)
             console.log(`${item} has been removed from inventory`);
         },
         getItems: function() {
@@ -49,7 +49,7 @@ const createInventory = () => {
 // console.log(player1);
 
 const inventory = createInventory()
-inventory.addItem('hammer')
+inventory.addItem('axe')
 inventory.addItem('book')
 console.log(inventory.getItems())
 inventory.removeItem('book')
