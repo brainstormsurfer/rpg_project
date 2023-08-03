@@ -1,15 +1,13 @@
-const createPlayerCharacter = (characterName, initialLevel) => {
-  
-    
+const createPlayerCharacter = (characterName, initialLevel) => {    
     return {        
     name: characterName,
     level: initialLevel,
     xp: 0,
-    levelUp : function() {
+    levelUp() {
       this.level++;
       console.log(`${this.name} leveled up! Current level: ${this.level}`);
     },
-    addXp: (updateXpBy) => {
+    addXp(updateXpBy) {
       this.xp += updateXpBy;
       console.log(`Added ${updateXpBy}xp. ${this.name}'s xp: ${this.xp}`);
     },
@@ -20,15 +18,15 @@ const createPlayerCharacter = (characterName, initialLevel) => {
 const createInventory = () => {
   return {
     items: [],
-    addItem: function (item) {
+    addItem(item) {
       this.items.push(item);
       console.log(`${item} has been added to inventory`);
     },
-    removeItem: function (item) {
+    removeItem(item) {
       this.items = this.items.filter((itemToDelete) => item !== itemToDelete);
       console.log(`${item} has been removed from inventory`);
     },
-    getItems: function () {
+    getItems() {
       return `Items: ${this.items}`;
     },
   };
@@ -38,7 +36,7 @@ const createAbility = (abilityName, power) => {
     return {
         name : abilityName,
         power: power, 
-        useAbility : function() {
+        useAbility() {
             console.log(`Using ${this.power} ${this.name} power`);
         }
     }
@@ -48,14 +46,14 @@ const createEnemy = (enemyName, health) => {
   return {
     name: enemyName,
     health: health,
-    attack: function () {
+    attack() {
       console.log("enemy is attacking");
     },
-    reduceHealth: function (reduceHealthBy) {
+    reduceHealth(reduceHealthBy) {
       this.health -= reduceHealthBy;
       console.log(`${this.name} remain ${this.health} health`);
     },
-    isDefeated: function () {
+    isDefeated() {
       return this.health <= 0 ? true : false;
     },
   };
