@@ -9,16 +9,20 @@ class Character {
     if (target instanceof Character) {
       target.health -= this.strength;
 
-      return `After being attacked by ${this.name}, ${target.name} current health is ${target.health}HP`;
+      return `After being attacked by ${this.name}, ${target.name} current health: ${target.health}HP`;
     }
   }
   addItem(item) {
     this.inventory.push(item)
   }
   removeItem(item) {
-    if (this.inventory.includes(item)) {
+    item.name = item.name.toLowerCase()
+    if (this.inventory.indexOf(item) !== -1) {
         this.inventory.splice(this.inventory.indexOf(item), 1)
-    }       
+    } else console.log('item not found in player\'s inventory')
+    if (!this.inventory.find((i) => i.name === item.name)) {      
+        console.log(`${item.name} successfully removed from player's inventory`);
+    }
   }
   displayCharacter() {
     return `
@@ -71,9 +75,9 @@ class HealthPotion extends Item {
     } 
 
     use(target) { 
-        console.log(`${target.name}'s HP before drinking health potion is ${target.health}`); 
+        console.log(`${target.name} before drinking health potion: ${target.health}HP`); 
         target.health += 30
-        console.log(`After drinking: ${target.health}`);    
+        console.log(`After drinking: ${target.health}HP`);    
     }
 }
 
@@ -83,7 +87,7 @@ class StrengthElixir extends Item {
     }     
     
     use(target) { 
-        console.log(`${target.name}'s HP before drinking strength potion is ${target.strength}`); 
+        console.log(`${target.name}'s strength before drinking strength elixir is ${target.strength}`); 
         target.strength += 10
         console.log(`After drinking: ${target.strength}`);    
     }
@@ -101,8 +105,9 @@ class Game {
     }
 
     // endGame
-    endGame() {
+    endGame() {        
         this.constructor()
+        console.log(`Game Over:\n ${this.player.displayCharacter()}`);
     }
 
     // spawnEnemy
@@ -125,16 +130,17 @@ class Game {
 
     // playerPickUpItem
     playerPickUpItem(item) {
-        console.log('item', item);
-        // based on name, and - as if there's only one of this type in game's items[] or player inventory 
+        console.log('item to pick up: ', item);
+        item.name = item.name.toLowerCase()
         this.items = this.items.filter(i => i.name !== item.name)
-        console.log('items', this.items);
-        if (this.player.inventory.indexOf(item) === -1) {
-            this.player.inventory.push(item)
-        }
+        console.log(`game items' without ${item.name}: ${this.items.length > 0 ? this.items.map((i) => i.name).join(',') : 'none'}`);
+        
+        this.player.addItem(item)
+        
         // ? CHECK items[]
+        // based on name, and - as if there's only one copy allowed in either games items[] or player inventory 
         if (!this.items.find((i) => i.name === item.name)) {
-            console.log(`${item.name} successfully removed from game items[]`);
+            console.log(`${item.name} successfully removed from game items'`);
         }
         // ? CHECK player inventory[]
         if (this.player.inventory.find((i) => i.name === item.name)) {
@@ -146,12 +152,16 @@ class Game {
 
     // playerUseItem
     playerUseItem(item, target) {
-        if (this.player.inventory.includes(item)) {
-                item.use(target)
-        }
+        if (item instanceof Item) {
+            console.log('this.player.inventory.includes(item)',this.player.inventory.includes(item));
+            if (this.player.inventory.includes(item)) {
+                    item.use(target)
+                    this.player.removeItem(item)
+            } else console.log(`${this.player.name} doesn't own ${item.name}`)
+        } else console.log(`couldn't identify item (${item})`)
     }
 
-    //playerAattck
+    //playerAttack
     playerAttack(enemy) {
         return this.player.attack(enemy)
     }
@@ -206,7 +216,7 @@ console.log('-------------');
 
 // Player uses the strength elixir
 console.log("Player uses Strength Elixir");
-game.playerUseItem(game.player.inventory[1], game.player);
+game.playerUseItem(game.player.inventory[0], game.player);
 console.log(game.player.displayCharacter());
 console.log('-------------');
 
