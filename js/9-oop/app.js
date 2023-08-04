@@ -106,8 +106,10 @@ class Game {
 
     // endGame
     endGame() {        
-        this.constructor()
-        console.log(`Game Over:\n ${this.player.displayCharacter()}`);
+        this.player = null
+        this.enemies = []
+        this.items = []
+        console.log(`Game Over!\n(player: ${this.player}, items: ${this.items}, enemies: ${this.enemies})`);
     }
 
     // spawnEnemy
@@ -229,7 +231,7 @@ console.log('-------------');
 
 
 // // End the game
-// console.log("Ending game");
-// game.endGame();
+console.log("Ending game");
+game.endGame();
 console.log('-------------');
 
