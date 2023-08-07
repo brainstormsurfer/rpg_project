@@ -2,8 +2,8 @@
 class Character {
     constructor(name,health,strength) {
         this.name = name
-        this.health = health || 0
-        this.strength = strength || 0
+        this.health = health || 0 // CR - This is not what the exercise asked you to do...
+        this.strength = strength || 0 // CR - This is not what the exercise asked you to do...
         this.inventory = []
     }
 
@@ -27,6 +27,8 @@ class Character {
         HP: ${this.health}
         Strength: ${this.strength} 
         Inventory: ${JSON.stringify(this.inventory)}`
+        /* CR - you could do it like this: "return `Name: ${this.name}\nHealth: ${this.health}\nStrength: ${this.strength}\nInventory: ${this.inventory.join(', ')}`;"
+           the \n is a line break */
     }
 
 }
@@ -70,6 +72,11 @@ class Item {
     }
 }
 class HealthPotion extends Item {
+    /*
+       CR - You can omit the constructor here. 
+       If a child class does not specify a constructor, then a default constructor is used. 
+       This default constructor calls the parent class constructor with all of the provided arguments.
+    */
     constructor(name, description){
         super(name, description)
     }
@@ -99,7 +106,7 @@ class Game {
     }
 
     startGame (playerName) {
-        this.player = new Player(playerName)
+        this.player = new Player(playerName) // CR - you must pass "health, strength, level" values. You can decide on default values. Not zeros.
     }
 
     endGame () {
@@ -116,10 +123,10 @@ class Game {
     spawnItem (itemName, itemDescription) {
         let item = null
         if(itemName === 'Health Potion'){
-            item = new HealthPotion(itemDescription)
+            item = new HealthPotion(itemDescription) // CR- you need to pass itemName and itemDescription
         } 
         else if (itemName === 'Strength Elixir') {
-            item = new StrengthElixir(itemDescription)
+            item = new StrengthElixir(itemDescription)  // CR -  you need to pass itemName and itemDescription
         } else {
             item = new Item(itemName, itemDescription)
         }
@@ -136,6 +143,7 @@ class Game {
     playerUseItem (item, target) {
         if(this.player.inventory.includes(item)){
             item.use(target) 
+            // CR - the instructions say: " it should use the item on the target and remove it from the player's inventory."
         }
     }
 
