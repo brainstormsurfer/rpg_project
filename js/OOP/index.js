@@ -2,8 +2,8 @@
 class Character {
     constructor(name,health,strength) {
         this.name = name
-        this.health = health || 0 // CR - This is not what the exercise asked you to do...
-        this.strength = strength || 0 // CR - This is not what the exercise asked you to do...
+        this.health = health 
+        this.strength = strength 
         this.inventory = []
     }
 
@@ -23,12 +23,8 @@ class Character {
     }
 
     displayCharacter () {
-        return `Name: ${this.name} 
-        HP: ${this.health}
-        Strength: ${this.strength} 
-        Inventory: ${JSON.stringify(this.inventory)}`
-        /* CR - you could do it like this: "return `Name: ${this.name}\nHealth: ${this.health}\nStrength: ${this.strength}\nInventory: ${this.inventory.join(', ')}`;"
-           the \n is a line break */
+        const inventoryNames = this.inventory.map(item => item.name);
+        return `Name: ${this.name}\nHealth: ${this.health}\nStrength: ${this.strength}\nInventory: ${inventoryNames.join(', ')}`;
     }
 
 }
@@ -57,7 +53,7 @@ class Enemy extends Character {
         return `Name: ${this.name}\n 
         HP: ${this.health}\n 
         Strength: ${this.strength}\n 
-        Type: ${this.type}}`
+        Type: ${this.type}`
     }
 }
 
@@ -72,14 +68,8 @@ class Item {
     }
 }
 class HealthPotion extends Item {
-    /*
-       CR - You can omit the constructor here. 
-       If a child class does not specify a constructor, then a default constructor is used. 
-       This default constructor calls the parent class constructor with all of the provided arguments.
-    */
-    constructor(name, description){
-        super(name, description)
-    }
+    
+    
 
     use (target) {
         console.log(`Use ${this.name} on ${target.name}`);
@@ -106,7 +96,7 @@ class Game {
     }
 
     startGame (playerName) {
-        this.player = new Player(playerName) // CR - you must pass "health, strength, level" values. You can decide on default values. Not zeros.
+        this.player = new Player(playerName, 100, 20, ['Axe']) 
     }
 
     endGame () {
@@ -123,10 +113,10 @@ class Game {
     spawnItem (itemName, itemDescription) {
         let item = null
         if(itemName === 'Health Potion'){
-            item = new HealthPotion(itemDescription) // CR- you need to pass itemName and itemDescription
+            item = new HealthPotion(itemName, itemDescription) 
         } 
         else if (itemName === 'Strength Elixir') {
-            item = new StrengthElixir(itemDescription)  // CR -  you need to pass itemName and itemDescription
+            item = new StrengthElixir(itemName, itemDescription)  
         } else {
             item = new Item(itemName, itemDescription)
         }
@@ -143,7 +133,7 @@ class Game {
     playerUseItem (item, target) {
         if(this.player.inventory.includes(item)){
             item.use(target) 
-            // CR - the instructions say: " it should use the item on the target and remove it from the player's inventory."
+           this.player.removeItem(item);
         }
     }
 
