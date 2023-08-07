@@ -170,6 +170,7 @@ class Game {
 }
 
 // ===================================
+console.log('--- TESTINGame ---');
 // ===================================
 
 // Instantiate a new game
@@ -193,7 +194,7 @@ console.log(game.playerAttack(game.enemies[0]));
 console.log('-------------');
 
 
-// // Spawn items
+// Spawn items
 console.log("Spawning items 'Health Potion' and 'Strength Elixir'");
 game.spawnItem('Health Potion', 'A potion that restores 30 health.');
 game.spawnItem('Strength Elixir', 'An elixir that increases strength by 10.');
@@ -209,7 +210,7 @@ console.log(game.player.displayCharacter());
 console.log('-------------');
 
 
-// // Player uses the health potion
+// Player uses the health potion
 console.log("Player uses Health Potion");
 game.playerUseItem(game.player.inventory[0], game.player);
 console.log(game.player.displayCharacter());
@@ -222,15 +223,13 @@ game.playerUseItem(game.player.inventory[0], game.player);
 console.log(game.player.displayCharacter());
 console.log('-------------');
 
-
 // Player upgrades level
 console.log("Player upgrades level");
 game.player.upgrade();
 console.log(game.player.displayCharacter());
 console.log('-------------');
 
-
-// // End the game
+// End the game
 console.log("Ending game");
 game.endGame();
 console.log('-------------');
