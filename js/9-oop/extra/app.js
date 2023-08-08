@@ -1,15 +1,15 @@
 class Character {
-  #health;
-  quest = null;
-  abilities = [];
-  items = [];
-  gold = 0;
+  #health; 
 
   constructor(name, health, strength, defense) {
     this.name = name;
     this.strength = strength;
     this.defense = defense;
     this.#health = health >= 0 ? health : 0;    
+    quest = null;
+    abilities = [];
+    items = [];
+    gold = 0;
   }
   get health() {
     return this.#health;
@@ -46,18 +46,31 @@ class Character {
   }
   receiveReward() {    
     const {quest} = this.quest    
-    if (quest.completed) {      
-       if (quest.reward.abilities.length > 0) {        
-          this.abilities = quest.reward.abilities
+    if (!quest.completed) {
+      return;
+    }    
+    const {abilities, items, gold} = this.quest.reward
+       if (abilities.length > 0) {        
+          this.addAbilities(abilities);
        }
-       if (quest.reward.items.length > 0) {        
-          this.items = quest.reward.items
+       if (items.length > 0) {        
+          this.addItems(items);
        }
-       if (quest.reward.gold > 0) {        
-          this.gold = quest.reward.gold
-       }
-    }  
+       if (gold > 0) {        
+          this.addGold();
+       }    
   }
+  
+  addAbilities(newAbilities) {
+    this.abilities.push(...newAbilities)
+  }
+  addItems(newItems) {
+    this.items.push(...newItems)
+  }
+  addGold(gold) {
+    this.gold += gold
+  }
+  
   getItems() {
     return this.items.map(i => i.name)
   }
