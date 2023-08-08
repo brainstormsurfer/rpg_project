@@ -24,14 +24,14 @@ class Character {
 
   attack(target) {
     if (target instanceof Character && target !== this) {
-        console.log("INSIDE", this.strength);
-      const result = Math.max(this.strength - target.defense, 0);
+        const result = Math.max(this.strength - target.defense, 0);
+        console.log("ATTACK (total damage)", result);
       target.receiveDamage(result);
     }
   }
 
   displayStats() {
-    const { name, health, strength, defense } = this;
+    const {name, health, strength, defense } = this;
     return `${this.characterType()} Current Stats -
                     Health: ${health}
                     Strength: ${strength}
@@ -53,7 +53,7 @@ class Knight extends Character {
     shieldAttack(target) {
         if (target instanceof Character && target !== this) {
             const result = Math.max(this.armor + this.strength - target.defense, 0)
-            console.log('SHIELD ATTACK');
+            console.log('SHIELD ATTACK (total damage)', result);
             target.receiveDamage(result)
         }
     }
@@ -76,8 +76,8 @@ class Knight extends Character {
     castSpell(target) {
         if (target instanceof Character && target !== this && this.mana >= 10) {
             const result = Math.max(this.mana + this.strength - target.defense, 0)
+            console.log('CASTING SPELL (total damage)', result);
             this.mana = Math.max(this.mana - 10, 0);
-            console.log('CASTING SPELL');
             target.receiveDamage(result)
         }
     }
