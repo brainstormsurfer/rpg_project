@@ -17,10 +17,10 @@ const users = [
 ];
 
 const container = document.querySelector('.container');
-olEl = document.createElement('ol');
+const olEl = document.createElement('ol');
 olEl.style.listStyleType = 'none';
 users.forEach(el => {
-  liEl = document.createElement('li');
+  const liEl = document.createElement('li');
   liEl.setAttribute("data-id", el.id);
   liEl.textContent = el.firstName + ' ' + el.lastName;
   olEl.append(liEl);});
