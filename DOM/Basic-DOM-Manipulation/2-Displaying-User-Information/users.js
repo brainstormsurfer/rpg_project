@@ -15,3 +15,5 @@ const users = [
     lastName: 'Burton',
   },
 ];
+
+module.exports = users;
