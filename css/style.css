@@ -36,7 +36,7 @@
 
 .modal-nav-bar {
     height: 4rem;
-    width: ;
+    width:100%;
   grid-area: nav-bar;
   background-color: rgb(255, 0, 0);
 }
