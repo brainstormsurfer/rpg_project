@@ -1,37 +1,69 @@
 :root {
-    --primary-font: "hwt-artz", sans-serif;
-    --placeholder-form-font: 'Open Sans', sans-serif; ;
-    --primary-font-weight: 700;
-    --login-title-font-size: 2.4rem;
-    --primary-font-color: #FFF;
-    --secondary-font-color: #000;
-    --not-active-font-color: #757575;
-    --placeholder-form-font-color: #8F8F8F;
-    --error-password-font-color: #E00000;
-    --correct-password-font-color: #32A709;
-    
+  --primary-font: "hwt-artz", sans-serif;
+  --placeholder-form-font: "Open Sans", sans-serif;
+  --primary-font-weight: 700;
+  --login-title-font-size: 2.4rem;
+  --primary-font-color: #fff;
+  --secondary-font-color: #000;
+  --not-active-font-color: #757575;
+  --placeholder-form-font-color: #8f8f8f;
+  --error-password-font-color: #e00000;
+  --correct-password-font-color: #32a709;
 }
 
-    .modal-title-structure {
-        font-size: 2.4rem;
-        font-family: var(--primary-font);
-        color: var(--not-active-font-color);
-        font-weight: var(--primary-font-weight);
-        text-shadow: 0rem 0.2rem 0rem var(--secondary-font-color);
-        text-align: center;
-    }
+.modal-title-structure {
+  font-size: 2.4rem;
+  font-family: var(--primary-font);
+  color: var(--not-active-font-color);
+  font-weight: var(--primary-font-weight);
+  text-shadow: 0rem 0.2rem 0rem var(--secondary-font-color);
+  text-align: center;
+}
 
-    .bright-font {
-        color: var(--primary-font-color);
-    }
+.bright-font {
+  color: var(--primary-font-color);
+}
 
-    .darking-font {
-        color: var(--not-active-font-color);
-    }
+.darking-font {
+  color: var(--not-active-font-color);
+}
 
+/* -------------showcase */
 
-    /* -------------showcase */
+.box-headline {
+  margin-top: 0.96rem;
+  width: 100%;
+  height: 2.9rem;
+  color: var(--secondary-font-color);
+  font-family: var(--primary-font);
+  font-size: 2.4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
 
-    
+.input-box {
+  width: 30rem;
+  display: flex;
+  align-items: center;
+  color: var(--placeholder-form-font-color);
+  background: #d9d9d9;
+  height: 5rem;
+  font-family: var(--placeholder-form-font);
+  font-size: 1.125rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: 1px solid #d9d9d9;
+}
 
-    
+.coming-soon {
+  font-family: var(--primary-font);
+  color: #676767;
+  background-color: #d9d9d9;
+  text-align: center;
+  font-size: 1.4rem;
+  font-style: normal;
+  font-weight: var(--primary-font-weight);
+  line-height: 1.1rem;
+}
