@@ -1,21 +1,32 @@
 :root {
     --primary-font: "hwt-artz", sans-serif;
-    --form-font: 'Open Sans', sans-serif; ;
+    --placeholder-form-font: 'Open Sans', sans-serif; ;
     --primary-font-weight: 700;
     --login-title-font-size: 2.4rem;
     --primary-font-color: #FFF;
     --secondary-font-color: #000;
-    --placeholder-font-color: #8F8F8F;
+    --not-active-font-color: #757575;
+    --placeholder-form-font-color: #8F8F8F;
     --error-password-font-color: #E00000;
     --correct-password-font-color: #32A709;
+    
 }
-    /* --Primary-color: black;
-    --secondary-color: white;
-    --secondary-background-color: #1c1c1c;
-    --hovering-grey: #c7c7bd;
-    --primary-font-size: 1.4rem;
-    --secondary-font-size: 1.6rem;
-    --marker-color-negative: red;
-    --marker-color-positive: green;
-    --marker-color-personality: rgb(0, 81, 255); */
-  
+
+    .modal-title-structure {
+        font-size: 2.4rem;
+        font-family: var(--primary-font);
+        color: var(--not-active-font-color);
+        font-weight: var(--primary-font-weight);
+        text-shadow: 0rem 0.2rem 0rem var(--secondary-font-color);
+        text-align: center;
+    }
+
+    .bright-font {
+        color: var(--primary-font-color);
+    }
+
+    .darking-font {
+        color: var(--not-active-font-color);
+    }
+
+    
