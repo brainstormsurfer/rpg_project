@@ -13,7 +13,7 @@
 
 .modal-title-structure {
   font-size: 2.4rem;
-  font-family: var(--primary-font);
+  font-family: var(--primary-font-family);
   color: var(--not-active-font-color);
   font-weight: var(--primary-font-weight);
   text-shadow: 0rem 0.2rem 0rem var(--secondary-font-color);
