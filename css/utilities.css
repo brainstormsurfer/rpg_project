@@ -1,5 +1,5 @@
 :root {
-  --primary-font: "hwt-artz", sans-serif;
+  --primary-font-family: "hwt-artz", sans-serif;
   --placeholder-form-font: "Open Sans", sans-serif;
   --primary-font-weight: 700;
   --login-title-font-size: 2.4rem;
@@ -35,7 +35,7 @@
   width: 100%;
   height: 2.9rem;
   color: var(--secondary-font-color);
-  font-family: var(--primary-font);
+  font-family: var(--primary-font-family);
   font-size: 2.4rem;
   font-style: normal;
   font-weight: 700;
@@ -58,7 +58,7 @@
 }
 
 .coming-soon {
-  font-family: var(--primary-font);
+  font-family: var(--primary-font-family);
   color: #676767;
   background-color: #d9d9d9;
   text-align: center;

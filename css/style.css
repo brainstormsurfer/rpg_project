@@ -320,7 +320,7 @@ form li {
   color: var(--primary-font-color);
   background-color: #3bb827;
   -webkit-text-stroke: black 0.85px;
-  font-family: var(--primary-font-color);
+  font-family: var(--primary-font-family);
   font-size: 3rem;
   font-weight: var(--primary-font-weight);
   letter-spacing: 0.09rem;
