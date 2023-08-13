@@ -296,11 +296,11 @@ form li {
   color: #fff;
   background-color: #3BB827 ;/* #3DBE42; */
   -webkit-text-stroke: black 0.85px;
-  font-family: "hwt-artz", sans-serif;
-  font-size: 1.875rem;
-  font-weight: 700;
-  letter-spacing: 0.05625rem;
-  border: 1px #3BB827 solid;
+  font-family: var(--primary-font-color);
+  font-size: 3rem;
+  font-weight: var(--primary-font-weight);
+  letter-spacing: 0.09rem;
+  border: 1px #3bb827 solid;
 }
 
 
