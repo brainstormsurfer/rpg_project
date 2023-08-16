@@ -1,6 +1,7 @@
 function toggleColumn(index) {
   const rows = document.querySelectorAll("#dataTable tr");
   rows.forEach(function (row) {
+    console.log(row.cells)
     const cell = row.cells[index];
     if (cell.style.display === 'none') {
       cell.style.display = '';
