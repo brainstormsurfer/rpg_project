@@ -27,8 +27,9 @@ function fillCode(el) {
 
 function fillFromClipboard(event) {
   event.preventDefault();
-  const paste =
+  let paste =
     event.clipboardData.getData("text") || window.clipboardData.getData("text");
+  paste = paste.toLowerCase();
 
   if (paste.length !== 6 || !/^[a-zA-Z0-9]+$/.test(paste)) {
     return false;
@@ -67,6 +68,6 @@ numList.forEach((el) => {
 
   el.addEventListener("paste", (event) => {
     fillFromClipboard(event);
-    checkAndSubmit();
+    // checkAndSubmit();
   });
 });
