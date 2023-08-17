@@ -6,12 +6,12 @@ window.addEventListener('scroll', () => {
   if (!scrolling) {
       scrolling = true;
   }  
-  sections.forEach((s) => {  
-        const bounding = s.getBoundingClientRect();
-        if (bounding.top <= window.innerHeight) {
-          s.querySelector('.text').classList.add('active');
+  sections.forEach((section) => {  
+        const bounding = section.getBoundingClientRect();
+        if (bounding.top < window.innerHeight / 2 && bounding.bottom >= window.innerHeight / 2 ) {
+          section.querySelector('.text').classList.add('active');
       } else {
-          s.querySelector('.text').classList.remove('active');
+          section.querySelector('.text').classList.remove('active');
     }})
     setTimeout(() => {
       scrolling = false;
