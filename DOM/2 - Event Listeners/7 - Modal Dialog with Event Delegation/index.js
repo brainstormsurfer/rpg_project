@@ -29,7 +29,6 @@ const originBackgroundColor = getComputedStyle(element).backgroundColor;
             },
             {
               transform: `scale(1) ${originPosition}`,
-            //   backgroundColor: `${originBackgroundColor}`,
               rotate: '720deg'
             },
           ];
@@ -67,8 +66,7 @@ const originBackgroundColor = getComputedStyle(element).backgroundColor;
     element.animate(keyframes, options)    
 }
 
-div.addEventListener('click', (event) => {
-    const target = event.target
+div.addEventListener('click', ({target}) => {
      if (target.id === "closeBtn") {   
         const xSpan = document.querySelector('span') 
         setTimeout(() => {            
