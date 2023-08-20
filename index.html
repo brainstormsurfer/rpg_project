@@ -1,14 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/utilities.css" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="https://use.typekit.net/kzh3yrd.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Gothic&family=Open+Sans:ital,wght@0,300;0,400;1,300&family=Palanquin+Dark&family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <title>Lobby - Login pop</title>
+  </head>
+  <body>
+    <div class="darken-filter">
+      <div class="login-modal">
+        <div class="modal-back-btn">
+          <a href="lobby">
+            <img
+              src="./assets/images/back_button.png"
+              alt="back_button"
+            />
+          </a>
+        </div>
+        <div class="modal-nav-bar">
+          <div class="myAccount-box modal-title-structure ">
+            <a class = " bright-font" href="my-account">
+              My Account
+            </a>
+            </div>
+          <div class ="myStats-box modal-title-structure">
+            <a class= "darking-font" href="my-stats">  
+            My Stats
+          </a>
+          </div>
+        </div>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
+        <div class="modal-header">
+          <div class="modal-gunEdge-img">
+            <img
+              src="/assets/images/Modal-Gun-Edge.png"
+              alt=""
+            />
+          </div>
+          <div class="modal-user-avatar-container">
+            <div class="modal-user-avatar">
+              <img
+                class="modal-avatar-icon"
+                src="/assets/images/Layer_1.svg"
+                alt=""
+              />
+              <img
+                class="modal-guest-text-icon"
+                src="/assets/images/GUEST.png"
+                alt=""
+              />
+            </div>
+          </div>
+        </div>
 
-<body>
+        <div class="modal-showcase-container">
+        <div class="modal-form-container">
+            <form action="">                
+              <div class="form-nickname-container">
+                <h3 class="box-headline">NICKNAME</h3>
+                <input
+                  class="input-box"
+                  type="nickname"
+                  placeholder="This will be your screen name"
+                />
+                          </div>
+              
+              <div class="form-email-container">
+                <h3 class="box-headline">EMAIL ADDRESS</h3>
+                <input
+                  class="input-box"
+                  type="email"
+                  placeholder="Enter valid email address"
+                />
+              </div>
 
-</body>
+              <div class="form-password-container">
+                <h3 class="box-headline">PASSWORD</h3>
+                <div class="input-box">                
+                <input
+                class="input-box"
+                  type="password"
+                  placeholder="Enter valid password"
+                /> 
+                <div class="eyecon pass-hidden"></div>
+                </div>
+                
+                <ul class="password-validation-ul">
+                  <li class="li-password-special-chars pass-invalid">
+                    <p>• Special Characters</p>
+                  </li>
+                  <li class="li-password-caps pass-valid">
+                    <p>• Caps</p>
+                  </li>
+                  <li class="li-password-lowercase pass-valid">
+                    <p>• Lowercase</p>
+                  </li>
+                  <li class="li-password-valid-numbers pass-valid">
+                    <p>• Numbers</p>
+                  </li>
+                </ul>
+                </div>
+              </div>
+            </form>        
+          <div class="modal-avatars-container">
+            <h3 class="box-headline">AVATAR</h3>
+            <div class="modal-avatars">            
+                <div class="avatar-box guest">
+                    <div id="guest"></div>
+                </div>
+                <div class="avatar-box head-1">
+                    <div id="head-1"></div>
+                </div>
+                <div class="avatar-box head-2">
+                    <div id="head-2"></div>
+                </div>
+                <div class="avatar-box head-3">
+                    <div id="head-3"></div>
+                </div>
+                <div class="avatar-box head-4">
+                    <div id="head-4"></div>
+                </div>
+                <div class="avatar-box head-5">
+                    <div id="head-5"></div>
+                </div>
+                <div class="avatar-box head-6">
+                    <div id="head-6"></div>
+                </div>
+                <div class="avatar-box molotov">
+                    <div id="molotov"></div>
+                </div>
+                <div class="avatar-box tnt">
+                    <div id="tnt"></div>
+                </div>
+                <div class="avatar-box bomb">
+                    <div id="bomb"></div>
+                </div>
+                <div class="avatar-box coming-soon">
+                    <p>COMING SOON</p>
+                </div>
+                <div class="avatar-box coming-soon">
+                    <p>COMING SOON</p>
+                </div>
+                <div class="avatar-box coming-soon">
+                    <p>COMING SOON</p>
+                </div>
+            </div>         
+             
+            <div class="modal-create-account-container">
+                <div class="btn-container">
+                    <div class="mid-btn-container">
+                    <button class="create-account-btn">
+                        <h4>
+                            Create Account
+                        </h4>    
+                    </button>
+                </div>
+                </div>
+              </div>
+        </div>
 
+    </div>
+        </div>
+    </div>
+  </body>
 </html>
