@@ -1,26 +1,31 @@
 
-const input = document.querySelector('input')
 
-const converter = (btnId) => {
-    let inputValue = input.value;
-    let parseValue = parseInt(inputValue);
-
-    if (!(input.value) || isNaN(parseValue)) {
-        alert('Please enter a number to convert')
-    }
-    return function() {
-        if (btnId === "toCelsius") {
-            input.value = (((inputValue)-32)*5/9).toFixed(3)
+(function() {
+    const temperatureInput = document.querySelector('#temperature')
+    const toCelsiusButton = document.querySelector('#toCelsius')
+    const toFahrenheitButton = document.querySelector('#toFahrenheit')
+    const outputElement = document.querySelector('#output')
+    
+    
+    toCelsiusButton.addEventListener('click', function() {
+        const inputValue = parseFloat(temperatureInput.value);        
+        if (isNaN(inputValue)) {
+            outputElement.textContent = 'Please enter a number to convert'
         } else {
-            input.value = (inputValue*1.8+32).toFixed(3)
+            const celsiusValue = ((inputValue - 32) * (5 / 9))
+            const result = `${inputValue}°F = ${celsiusValue.toFixed(3)}°C`
+            outputElement.textContent = result;
         }
-    }
-}
+    });
 
-const buttons = document.querySelectorAll('button')
-buttons.forEach((button) => {
-    button.addEventListener('click', function() {        
-        const convert = converter(this.id)
-        convert()
-    })
-})
+    toFahrenheitButton.addEventListener('click', function() {     
+        const inputValue = parseFloat(temperatureInput.value);  
+        if (isNaN(inputValue)) {
+            outputElement.textContent = 'Please enter a number to convert'
+        } else {
+            const celsiusValue = (inputValue * 9 / 5 + 32)
+            const result = `${inputValue}°C = ${celsiusValue.toFixed(3)}°F`
+            outputElement.textContent = result;
+        }        
+    });
+})();
