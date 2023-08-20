@@ -20,31 +20,21 @@
       <div class="login-modal">
         <div class="modal-back-btn">
           <a href="lobby">
-            <img
-              src="./assets/images/back_button.png"
-              alt="back_button"
-            />
+            <img src="./assets/images/back_button.png" alt="back_button" />
           </a>
         </div>
         <div class="modal-nav-bar">
-          <div class="myAccount-box modal-title-structure ">
-            <a class = " bright-font" href="my-account">
-              My Account
-            </a>
-            </div>
-          <div class ="myStats-box modal-title-structure">
-            <a class= "darking-font" href="my-stats">  
-            My Stats
-          </a>
+          <div class="myAccount-box modal-title-structure">
+            <a class="bright-font" href="my-account"> My Account </a>
+          </div>
+          <div class="myStats-box modal-title-structure">
+            <a class="darking-font" href="my-stats"> My Stats </a>
           </div>
         </div>
 
         <div class="modal-header">
           <div class="modal-gunEdge-img">
-            <img
-              src="/assets/images/Modal-Gun-Edge.png"
-              alt=""
-            />
+            <img src="/assets/images/Modal-Gun-Edge.png" alt="" />
           </div>
           <div class="modal-user-avatar-container">
             <div class="modal-user-avatar">
@@ -63,17 +53,18 @@
         </div>
 
         <div class="modal-showcase-container">
-        <div class="modal-form-container">
-            <form action="">                
+          <div class="modal-form-container" id="form">
+            <form action="">
               <div class="form-nickname-container">
                 <h3 class="box-headline">NICKNAME</h3>
                 <input
                   class="input-box"
-                  type="nickname"
+                  type="text"
                   placeholder="This will be your screen name"
                 />
-                          </div>
-              
+                <div id="nicknameError" class="error-message"></div>
+              </div>
+
               <div class="form-email-container">
                 <h3 class="box-headline">EMAIL ADDRESS</h3>
                 <input
@@ -81,19 +72,19 @@
                   type="email"
                   placeholder="Enter valid email address"
                 />
+                <div id="emailError" class="error-message"></div>
               </div>
-
               <div class="form-password-container">
                 <h3 class="box-headline">PASSWORD</h3>
-                <div class="input-box">                
-                <input
-                class="input-box"
-                  type="password"
-                  placeholder="Enter valid password"
-                /> 
-                <div class="eyecon pass-hidden"></div>
+                <div class="input-box">
+                  <input
+                    class="input-box"
+                    type="password"
+                    placeholder="Enter valid password"
+                  />
+                  <div class="eyecon pass-hidden"></div>
                 </div>
-                
+
                 <ul class="password-validation-ul">
                   <li class="li-password-special-chars pass-invalid">
                     <p>• Special Characters</p>
@@ -108,68 +99,70 @@
                     <p>• Numbers</p>
                   </li>
                 </ul>
-                </div>
+                <div id="passwordError" class="error-message"></div>
               </div>
-            </form>        
+              <div class="submit">
+                <input type="submit" name="submit" id="submitbtn" />
+              </div>
+            </form>
+          </div>
           <div class="modal-avatars-container">
             <h3 class="box-headline">AVATAR</h3>
-            <div class="modal-avatars">            
-                <div class="avatar-box guest">
-                    <div id="guest"></div>
-                </div>
-                <div class="avatar-box head-1">
-                    <div id="head-1"></div>
-                </div>
-                <div class="avatar-box head-2">
-                    <div id="head-2"></div>
-                </div>
-                <div class="avatar-box head-3">
-                    <div id="head-3"></div>
-                </div>
-                <div class="avatar-box head-4">
-                    <div id="head-4"></div>
-                </div>
-                <div class="avatar-box head-5">
-                    <div id="head-5"></div>
-                </div>
-                <div class="avatar-box head-6">
-                    <div id="head-6"></div>
-                </div>
-                <div class="avatar-box molotov">
-                    <div id="molotov"></div>
-                </div>
-                <div class="avatar-box tnt">
-                    <div id="tnt"></div>
-                </div>
-                <div class="avatar-box bomb">
-                    <div id="bomb"></div>
-                </div>
-                <div class="avatar-box coming-soon">
-                    <p>COMING SOON</p>
-                </div>
-                <div class="avatar-box coming-soon">
-                    <p>COMING SOON</p>
-                </div>
-                <div class="avatar-box coming-soon">
-                    <p>COMING SOON</p>
-                </div>
-            </div>         
-             
+            <div class="modal-avatars">
+              <div class="avatar-box guest">
+                <div id="guest"></div>
+              </div>
+              <div class="avatar-box head-1">
+                <div id="head-1"></div>
+              </div>
+              <div class="avatar-box head-2">
+                <div id="head-2"></div>
+              </div>
+              <div class="avatar-box head-3">
+                <div id="head-3"></div>
+              </div>
+              <div class="avatar-box head-4">
+                <div id="head-4"></div>
+              </div>
+              <div class="avatar-box head-5">
+                <div id="head-5"></div>
+              </div>
+              <div class="avatar-box head-6">
+                <div id="head-6"></div>
+              </div>
+              <div class="avatar-box molotov">
+                <div id="molotov"></div>
+              </div>
+              <div class="avatar-box tnt">
+                <div id="tnt"></div>
+              </div>
+              <div class="avatar-box bomb">
+                <div id="bomb"></div>
+              </div>
+              <div class="avatar-box coming-soon">
+                <p>COMING SOON</p>
+              </div>
+              <div class="avatar-box coming-soon">
+                <p>COMING SOON</p>
+              </div>
+              <div class="avatar-box coming-soon">
+                <p>COMING SOON</p>
+              </div>
+            </div>
+
             <div class="modal-create-account-container">
-                <div class="btn-container">
-                    <div class="mid-btn-container">
-                    <button class="create-account-btn">
-                        <h4>
-                            Create Account
-                        </h4>    
-                    </button>
-                </div>
+              <div class="btn-container">
+                <div class="mid-btn-container">
+                  <button class="create-account-btn">
+                    <h4>Create Account</h4>
+                  </button>
                 </div>
               </div>
+            </div>
+          </div>
         </div>
-
+      </div>
     </div>
-        </div>
-    </div>
+    <script src="./script.js"></script>
   </body>
 </html>
