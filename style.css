@@ -52,38 +52,41 @@
 	 0.1rem -0.1rem 0 #000,
 	 0.1rem 0.2rem 0 #000,
 	0.1rem 0.2rem 0 #000;
-	--text-shadow-thick: 
+	--text-outline: 
+	-0.2rem 0.2rem 0 #000,  
+	0.2rem 0.2rem 0 #000,
+	0.2rem -0.2rem 0 #000,
+	 -0.2rem -0.2rem 0 #000;
 }
  
 .btn {
-	box-shadow: 0px 5px 1px 0px rgba(0, 0, 0, 0.60);
-
+	box-shadow: 0rem 0.5rem 0.1rem 0rem rgba(0, 0, 0, 0.60);
+    border: 0.4rem solid var(--black-001);
+	border-radius: 0.8rem;
 }
 
 .green-btn {
-    background: var(--green--button-fill);
-    border-radius: 0.8rem;
-    border: 4px solid #000;
     background: var(--green-button-outer);
-    box-shadow: 0px 5px 1px 0px rgba(0, 0, 0, 0.60);
 }
 
 .green-btn span {
 	display: inline-block;
 	position: relative;
-	top: 0.3rem;
-	width: 28rem;
-	height: 3.2rem;
-	margin-top: -0.2rem;
+	z-index: 3;
+}
+
+.green-btn::after {
+	content:"";
+	display: inline-block;
+	position: relative;
 	background: var(--green-button-inner);
-	border-radius: 0.4rem;
+	border-radius: 0.8rem;
 }
+
 .red-button {
-    border-radius: 0.8rem;
-    border: 4px solid #000;
-    background: var(--red-button-outer, linear-gradient(180deg, #FA6666 0%, #800D0D 100%));
-    box-shadow: 0px 5px 1px 0px rgba(0, 0, 0, 0.60);
+    background: var(--red-button-outer);
 }
+
 
 
 /* 
@@ -99,6 +102,7 @@
 .tk-fit { font-family: "fit",sans-serif; }
 .tk-fit-extended { font-family: "fit-extended",sans-serif; }
 .tk-fit-extra-condensed { font-family: "fit-extra-condensed",sans-serif; } */
+
 .squaddie-container {
 	display: flex;
 	flex-direction: row;
@@ -109,7 +113,6 @@
 	bottom: 12.4rem;
 	width: 183rem;
 	height: 77.8rem;
-	/* border: #000 1px solid; */
 	text-align: center;
 	overflow: hidden;
 }
@@ -143,7 +146,7 @@
 }
 
 .squaddie section h2 {
-	color: #fff;
+	color: var(--white-001);
 	font-size: 4.8rem;
 	font-weight: 700;
 	margin-top: 4.8rem;
@@ -163,15 +166,16 @@
 	font-size: 1.5rem;
 	line-height: 1.5rem; /* 100% */
 	letter-spacing: 0.45px;
-	text-shadow: var(--text-shadow-2px);
+	text-shadow: var(--text-outline);
  }
 
  
  .squaddie-stats {
 	margin-top: 2.3rem;
 	display: grid;
+	grid-gap: 1rem;
 	grid-template: 3rem 3rem/ 10rem 10rem 10rem;
-	background-color:pink ; 
+	margin-left: 2.8rem;
  }
 
  .stats {
@@ -191,21 +195,39 @@
 	margin-right: 3.4rem;
 	margin-left: 3rem;
 	width: 28.5rem;
-	height: 4.3rem;
+	height: 5rem;
 	color: var(--white-001);
-	text-shadow: var(--text-shadow-4px);
 	font-size: 3.3rem;
 	font-weight: 700;
 	line-height: 3.9rem;
 	letter-spacing: 0.1rem;
+	text-shadow: var(--text-outline);
+}
+
+.add-squaddie-btn span {
+	margin-top: 0.2rem;
+} 
+
+ .add-squaddie-btn::after {
+	top: -3.7rem;
+	width: 27.4rem;
+	height: 3.4rem;
+	/* margin-top: -0.2rem; */
+	filter: blur(1px);
 	border-radius: 0.8rem;
-	background-color: rgb(0, 190, 0);
-	border: 0.2rem solid black;
-	box-shadow: 0rem 0.5rem 0.1rem 0rem black;
 }
 
 .remove-squaddie-btn {
 
+}
+
+.upgrade-btn {
+	border: 0.2rem solid var(--black-001);
+	box-shadow: none;
+	height: 3.1rem;
+	width: 10rem;
+	border-radius: 0.8rem;
+	margin-top: 0.5rem;
 }
 
 .squaddie-blue section {
@@ -236,3 +258,4 @@
 .squaddie-unavailable button {
 	display : none;
 }
+
