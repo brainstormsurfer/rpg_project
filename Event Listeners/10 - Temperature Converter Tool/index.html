@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Temperature Converter Tool</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .input-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input {
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      border: none;
+      cursor: pointer;
+      background: #007BFF;
+      color: #ffffff;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    #output {
+      font-weight: bold;
+      margin-top: 15px;
+      font-size: 1.2em;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="input-group">
+      <label for="temperature">Enter Temperature:</label>
+      <input type="number" id="temperature" placeholder="Enter temperature">
+    </div>
+    <button id="toCelsius">Convert to Celsius</button>
+    <button id="toFahrenheit">Convert to Fahrenheit</button>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    (function() {
+  // // Access DOM Elements
+  // const temperatureInput = document.getElementById('temperature');
+  // const toCelsiusButton = document.getElementById('toCelsius');
+  // const toFahrenheitButton = document.getElementById('toFahrenheit');
+  // const outputDisplay = document.getElementById('output');
+
+ const temperatureInput = document.getElementById('temperature');
+ const toCelsiusButton = document.getElementById('toCelsius')
+  const toFahrenheitButton = document.getElementById('toFahrenheit');
+  const outputDisplay = document.getElementById('output');
+
+
+  // // Celsius Button Event Listener
+  // toCelsiusButton.addEventListener('click', function() {
+  //   const inputTemperature = parseFloat(temperatureInput.value);
+  //   const convertedTemperatureCelsius = (inputTemperature - 32) * (5 / 9);
+
+
+  toCelsiusButton.addEventListener('click', function(){
+  const inputTemperature = parseFloat(temperatureInput.value)
+  const convertedTemperatureCelsius = (inputTemperature - 32) * (5 / 9);
+
+  outputDisplay.textContent = `${inputTemperature.toFixed(2)} f is ${convertedTemperatureCelsius.toFixed(2)} c`
+  });
+  
+  //   // Display Result
+  //   outputDisplay.textContent = `${inputTemperature.toFixed(2)}°F is ${convertedTemperatureCelsius.toFixed(2)}°C`;
+  // });
+
+  toFahrenheitButton.addEventListener('click', function(){
+  const inputTemperature = parseFloat (temperatureInput.value);
+
+  const convertedTemperatureFahrenheit = (inputTemperature * 9 / 5) + 32 ;
+
+  outputDisplay.textContent = `${inputTemperature.toFixed(2)} c is ${convertedTemperatureFahrenheit.toFixed(2)} fff`;
+
+
+  });
+
+  // // Fahrenheit Button Event Listener
+  // toFahrenheitButton.addEventListener('click', function() {
+  //   const inputTemperature = parseFloat(temperatureInput.value);
+  //   const convertedTemperatureFahrenheit = (inputTemperature * 9 / 5) + 32;
+
+  //   // Display Result
+  //   outputDisplay.textContent = `${inputTemperature.toFixed(2)}°C is ${convertedTemperatureFahrenheit.toFixed(2)}°F`;
+  // });
+})();
+
+  </script>
+</body>
+
+</html>

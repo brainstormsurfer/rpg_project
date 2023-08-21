@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background-color: #f4f4f4;
+    }
+
+    .products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .product {
+      margin: 20px;
+      padding: 20px;
+      border: 1px solid #ddd;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product button {
+      padding: 10px;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .product button:hover {
+      background-color: #0056b3;
+    }
+
+    .cart {
+      margin: 20px;
+      padding: 20px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .jpp
+    {
+      background: red;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="products">
+    <div class="product" data-id="1">
+      <h3>Product 1</h3>
+      <button>Add to Cart</button>
+    </div>
+    <div class="product" data-id="2">
+      <h3>Product 2</h3>
+      <button>Add to Cart</button>
+    </div>
+  </div>
+  <div class="cart">
+    <h2>Shopping Cart</h2>
+    <div class="cart-items"></div>
+  </div>
+  <script>
+    // Step 2: Initialize the Cart Object
+const cart = {};
+
+// Step 3: Create a Function to Handle Adding Products to the Cart
+function addProductToCart(productId) {
+  return function() {
+    if (cart[productId]) {
+      cart[productId]++; // Increment quantity if product already exists
+    } else {
+      cart[productId] = 1; // Add new entry for the product
+    }
+    updateCart(); // Update the cart display
+  };
+}
+
+
+
+
+
+// Step 4: Implement a Function to Update the Cart Display
+function updateCart() {
+  const cartItemsDiv = document.querySelector('.cart-items');
+  cartItemsDiv.innerHTML = ''; // Clear previous entries
+
+  for (const [ggg, fff] of Object.entries(cart)) {
+    const cartItemDiv = document.createElement('div');
+    cartItemDiv.className = 'cart-item';
+    cartItemDiv.innerHTML = `Product ${ggg}: Quantity ${fff}`;
+    cartItemsDiv.appendChild(cartItemDiv);
+  }
+}
+
+// Step 5: Attach Event Listeners to the Products Using Closures
+const productButtons = document.querySelectorAll('.product button');
+productButtons.forEach((button) => {
+  const productId = button.parentElement.getAttribute('data-id');
+  button.addEventListener('click', addProductToCart(productId));
+});
+
+// Step 6: Test the Application
+// This code assumes you already have some products with buttons in your HTML.
+// Click the "Add to Cart" buttons and the cart display should update accordingly.
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shape Drawing Tool</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 20px;
+      background-color: #156d96;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .tools {
+      display: flex;
+      justify-content: space-around;
+      width: 600px;
+      margin-bottom: 30px;
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: #080808;
+    }
+
+    .tool {
+      padding: 12px 20px;
+      cursor: pointer;
+      border: none;
+      background-color: #ee1c00;
+      transition: background-color 0.3s, transform 0.3s;
+      border-radius: 5px;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .tool:hover {
+      background-color: #99c2ff;
+      transform: scale(1.1);
+    }
+
+    canvas {
+      border: 2px solid #99ffa7;
+      display: block;
+      background-color: #ffffff;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="tools">
+      <div class="tool" data-tool="rectangle">Rectangle</div>
+      <div class="tool" data-tool="circle">Circle</div>
+    </div>
+    <canvas id="drawingArea" width="600" height="400"></canvas>
+  </div>
+
+<script>
+  // Step 2: Define Variables
+// 2.1 Select the Tools and Canvas
+const tools = document.querySelectorAll('.tool');
+const canvas = document.getElementById('drawingArea');
+
+// 2.2 Get the Canvas Rendering Context
+const ctx = canvas.getContext('2d');
+
+
+// Step 3: Implement Shape Drawing with Closures
+// 3.1 Define a Draw Shape Function
+function drawShape(shape) {
+  return function(event) {
+    const x = event.clientX - canvas.getBoundingClientRect().left;
+    const y = event.clientY - canvas.getBoundingClientRect().top;
+
+    // 3.2 Draw Specific Shapes Using Canvas API
+    ctx.beginPath();
+    if (shape === 'rectangle') {
+      ctx.rect(x - 30, y - 20, 60, 40); // Adjust the dimensions as needed
+    } else if (shape === 'circle') {
+      ctx.arc(x, y, 30, 0, 2 * Math.PI); // Adjust the radius as needed
+    }
+    ctx.stroke();
+  };
+}
+
+
+
+// Step 4: Attach Event Listeners to Tools
+// 4.1 Iterate Over the Tools
+tools.forEach(tool => {
+  // 4.2 Add Click Event Listener to Each Tool
+  tool.addEventListener('click', function() {
+    const shape = this.dataset.tool;
+    canvas.addEventListener('click', drawShape(shape), { once: true });
+  });
+});
+
+// Optional Step: Add Enhancements
+// You can enhance the tool by adding more shapes or interactive features.
+
+</script>
+  </body>
+
+</html>

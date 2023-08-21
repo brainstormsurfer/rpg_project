@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scroll-Activated Animations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .text {
+      opacity: 0;
+      transform: translateY(50px) scale(0.9);
+      transition: opacity 1s cubic-bezier(0.22, 0.61, 0.36, 1),
+        transform 1s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    .text.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .section:nth-child(odd) {
+      background-color: #4f648f;
+    }
+
+    .section:nth-child(even) {
+      background-color: #a56259;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="section">
+    <h1 class="text">Section 1</h1>
+  </div>
+  <div class="section">
+    <h1 class="text">Section 2</h1>
+  </div>
+  <div class="section">
+    <h1 class="text">Section 3</h1>
+  </div>
+  <script>
+    window.addEventListener("scroll", function() {
+      const textElements = document.querySelectorAll(".text");
+  
+      textElements.forEach(function(textElement) {
+        const bounding = textElement.getBoundingClientRect();
+        const top = bounding.top;
+  
+        const desiredRange = window.innerHeight * 0.7; // Adjust the threshold as needed
+  
+        if (top < desiredRange) {
+          textElement.classList.add("active");
+        } else {
+          textElement.classList.remove("active");
+        }
+      });
+    });
+
+  </script>
+  
+</body>
+
+</html>
