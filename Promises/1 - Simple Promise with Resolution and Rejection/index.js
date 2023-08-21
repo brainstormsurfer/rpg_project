@@ -15,10 +15,12 @@ function clickHandler() {
 }
 
 button.addEventListener("click", () => {
-  const handlePromise = clickHandler();
-  handlePromise
+  clickHandler()  
     .then(() => {
       console.log("The promise has been resolved!");
+    })
+    .then(() => {
+      console.log("(...seriously)");
     })
     .catch(() => {
       console.log("The promise has been rejected!");
