@@ -7,8 +7,7 @@ let draggablePosX = 0;
 let draggablePosY = 0;
 
 let insideTargetBox = false;
-let switchColor
-
+let switchColor;
 let targetEffect;
 
 draggable.addEventListener("dragstart", (e) => {
