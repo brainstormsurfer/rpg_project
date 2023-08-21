@@ -37,7 +37,7 @@ const originBackgroundColor = getComputedStyle(element).backgroundColor;
     {
       transform: `${originPosition}`,
       backgroundColor: "blue",
-     test : 'Click the X to close this modal'
+     text : 'Click the X to close this modal'
     },
     {
       transform: `scale(2)`,
@@ -50,10 +50,9 @@ const originBackgroundColor = getComputedStyle(element).backgroundColor;
   ];
 
   setTimeout(() => {
-
       element.textContent = ''
       element.textContent = 'Click the X to close this modal';    
-    }, 800);
+    }, 500);
   }
 
   const options = {
