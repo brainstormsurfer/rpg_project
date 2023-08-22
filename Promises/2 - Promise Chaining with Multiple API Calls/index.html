@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise Chaining with Multiple API Calls to JSONPlaceholder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .user {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #01e1ff;
+        }
+
+        h2 {
+            color: #040433;
+        }
+
+        .posts {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .post {
+            margin: 5px 0;
+            padding: 5px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background: #ff0000ee;
+        }
+
+        .post strong {
+            color: #070956;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Users and Their Posts</h1>
+        <div id="users"></div>
+    </div>
+   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const BASE_URL = 'https://jsonplaceholder.typicode.com';
+
+        function fetchUsers() {
+            fetch(`${BASE_URL}/users`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch users: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(users => {
+                    const usersContainer = document.getElementById('users');
+                    users.forEach(user => {
+                        const userDiv = document.createElement('div');
+                        userDiv.classList.add('user');
+                        userDiv.innerHTML = `
+                            <h2>${user.name}</h2>
+                            <p><strong>Email:</strong> ${user.email}</p>
+                            <div class="posts"></div>
+                        `;
+                        usersContainer.appendChild(userDiv);
+
+                        fetchUserPosts(user.id, userDiv.querySelector('.posts'));
+                    });
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+
+        function fetchUserPosts(userId, postsContainer) {
+            fetch(`${BASE_URL}/posts?userId=${userId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`Failed to fetch posts for user ${userId}: ${response.statusText}`);
+                    }
+                    return response.json();
+                })
+                .then(posts => {
+                    posts.forEach(post => {
+                        const postDiv = document.createElement('div');
+                        postDiv.classList.add('post');
+                        postDiv.innerHTML = `<strong>${post.title}</strong><br>${post.body}`;
+                        postsContainer.appendChild(postDiv);
+                    });
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        }
+
+        // Call the main function to start fetching and displaying data
+        fetchUsers();
+    </script>
+</body>
+
+</html>

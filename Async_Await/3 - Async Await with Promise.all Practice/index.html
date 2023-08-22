@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise.all Practice with JSONPlaceholder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h3 {
+            color: #007bff;
+        }
+
+        .section {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #f3f3f3;
+        }
+
+        .item {
+            margin: 5px 0;
+            padding: 5px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background: #f10808;
+        }
+
+        .item strong {
+            color: #05023d;
+        }
+
+        #error {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>JSONPlaceholder Data</h1>
+        <div id="error"></div>
+        <div class="section" id="users">
+            <h3>Users</h3>
+        </div>
+        <div class="section" id="posts">
+            <h3>Posts</h3>
+        </div>
+    </div>
+    <script>
+  // Part 1: Defining the URLs and Fetch Function
+//   const usersURL = 'https://jsonplaceholder.typicode.com/users';
+//   const postsURL = 'https://jsonplaceholder.typicode.com/posts';
+
+const usersURL = 'https://jsonplaceholder.typicode.com/users';
+const postsURL = 'https://jsonplaceholder.typicode.com/posts';
+
+async function fetchData(url){
+const response = await fetch(url);
+if(!response.ok)
+{
+    throw new Error(`Network response was not OK for ${url}`)
+}
+return response.json();
+}
+//   async function fetchData(url) {
+//     const response = await fetch(url);
+//     if (!response.ok) {
+//       throw new Error(`Network response was not OK for ${url}`);
+//     }
+//     return response.json();
+//   }
+
+async function displayData(){
+try {
+    const usersContainer = document.getElementById('users');
+    const postsContainer = document.getElementById('posts');
+
+    const [users,posts] = await Promise.all([fetchData(usersURL),fetchData(postsURL)]);
+
+
+
+
+
+
+  // Part 2: Displaying the Data
+//   async function displayData() {
+//     try {
+//       // Select the users and posts divs
+//       const usersContainer = document.getElementById('users');
+//       const postsContainer = document.getElementById('posts');
+
+//       // Fetch Users and Posts concurrently
+//       const [users, posts] = await Promise.all([
+//         fetchData(usersURL),
+//         fetchData(postsURL)
+//       ]);
+
+      // Handle the Users Data
+    //   users.forEach(user => {
+    //     const userDiv = document.createElement('div');
+    //     userDiv.classList.add('item');
+    //     userDiv.innerHTML = `<strong>Name:</strong> ${user.name}<br><strong>Email:</strong> ${user.email}`;
+    //     usersContainer.appendChild(userDiv);
+    //   });
+
+    users.forEach(user=>{
+    const userDiv = document.createElement('div');
+    userDiv.classList.add('item');
+    userDiv.innerHTML = `<strong>Name : </strong> ${user.name}<br><strong>email;</strong> ${user.email}`;
+    usersContainer.appendChild(userDiv);
+    });
+
+posts.forEach(post=> {
+const postDiv = document.createElement('div');
+postDiv.classList.add('item');
+postDiv.innerHTML = `<strong>Title:</strong> ${post.title}<br><strong>Body:</strong> ${post.body}`;
+})
+}
+catch (error){
+    const errorContainer = document.getElementById('error')
+    errorContainer.textContent = `An error occurred: ${error.message}. Please try again later.`;
+}
+}
+displayData();
+
+
+      // Handle the Posts Dataz
+//       posts.forEach(post => {
+//         const postDiv = document.createElement('div');
+//         postDiv.classList.add('item');
+//         postDiv.innerHTML = `<strong>Title:</strong> ${post.title}<br><strong>Body:</strong> ${post.body}`;
+//         postsContainer.appendChild(postDiv);
+//       });
+//     } catch (error) {
+//       const errorContainer = document.getElementById('error');
+//       errorContainer.textContent = `An error occurred: ${error.message}. Please try again later.`;
+//     }
+//   }
+
+  // Part 4: Call the displayData Function
+    </script>
+</body>
+
+</html>

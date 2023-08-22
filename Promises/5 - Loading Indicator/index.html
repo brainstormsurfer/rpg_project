@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Indicator with JSONPlaceholder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .section {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #f3f3f3;
+        }
+
+        .item {
+            margin: 5px 0;
+            padding: 5px;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            background: #fafafa;
+        }
+
+        #loading-indicator {
+            display: none;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>JSONPlaceholder Users</h1>
+        <div id="loading-indicator">Loading...</div>
+        <div class="section" id="users"></div>
+    </div>
+    <script>
+        // Step 1: Setup the URL for fetching user data
+        const userURL = 'https://jsonplaceholder.typicode.com/users';
+
+        // Step 2: Select necessary HTML elements
+        const usersContainer = document.getElementById('users');
+        const loadingIndicator = document.getElementById('loading-indicator');
+
+        // Step 3: Display loading indicator
+        loadingIndicator.style.display = 'block';
+
+        // Step 4: Make a Fetch Request
+        fetch(userURL)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(users => {
+                // Step 5: Handle the Response
+
+                // Step 6: Process the Data
+                users.forEach(user => {
+                    const userDiv = document.createElement('div');
+                    userDiv.classList.add('item');
+                    userDiv.innerHTML = `<strong>Name:</strong> ${user.name}<br><strong>Email:</strong> ${user.email}`;
+                    usersContainer.appendChild(userDiv);
+                });
+
+                // Step 7: Hide the Loading Indicator
+                loadingIndicator.style.display = 'none';
+            })
+
+            
+            .catch(error => {
+                // Step 8: Handle Errors
+                console.error('Error fetching users:', error);
+                loadingIndicator.style.display = 'none';
+                usersContainer.innerHTML = 'An error occurred while fetching users.';
+            });
+    </script>
+</body>
+
+</html>
