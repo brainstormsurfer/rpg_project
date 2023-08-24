@@ -1,53 +1,67 @@
-
 /* The switch - the box around the slider */
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 6rem;
-    height: 3.4rem;
-  }
-  
-  /* Hide default HTML checkbox */
-  .switch input {
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-  
-  /* The slider */
-  .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: black;
-    content: "max";
-    color: #ffffff;
-  }
-  
-  .slider:before {
-    position: absolute;
-    content: "X1";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: #3DBE42;
-    color: black;
-    font-size: 1.4rem;
-  }
-  
-  input:checked + .slider {
-    background-color: #3DBE42;
-  }
-  
-  /* Rounded sliders */
-  .slider.round {
-    border-radius: 3.4rem;
-  }
-  
-  .slider.round:before {
-    border-radius: 50%;
-  }
+	position: relative;
+	display: inline-block;
+	width: 6rem;
+	height: 3.4rem;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: black;
+	color: #ffffff;
+}
+
+.slider:after {
+	content: 'max';
+	position: relative;
+	top: 0.6rem;
+	left: 1.6rem;
+	font-family: HWT Artz;
+	color: #ffffff;
+	font-size: 1.2rem;
+	font-weight: 700;
+	line-height: normal;
+}
+
+.slider:before {
+	position: absolute;
+	left: 0.2rem;
+	background-color: #3dbe42;
+	font-size: 1.4rem;
+	color: #000;
+	font-family: HWT Artz;
+	font-size: 1.2rem;
+	font-weight: 700;
+	line-height: normal;
+}
+
+input:checked + .slider {
+	background-color: #3dbe42;
+}
+
+.slider.round {
+	border-radius: 5.5rem;
+	height: 2.5rem;
+	width: 7rem;
+}
+
+.slider.round:before {
+	border-radius: 5.5rem;
+	height: 2.1rem;
+	width: 3.5rem;
+	top: 0.2rem;
+  content: '\00D7 1';
+}

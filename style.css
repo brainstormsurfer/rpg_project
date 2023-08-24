@@ -187,7 +187,17 @@
 	border-radius: 3rem;
 	width: 10.5rem;
 	height: 3.5rem;
-	padding: 0.6rem;
+	padding: 0.5rem;
+ }
+
+ .strength{
+	position: relative;
+	top: 0.5rem;
+ }
+
+ .health {
+	position: relative;
+	top: 0.1rem;
  }
 
 .add-squaddie-btn {
@@ -224,7 +234,7 @@
 .upgrade-btn {
 	border: 0.2rem solid var(--black-001);
 	box-shadow: none;
-	height: 3.1rem;
+	height: 3.6rem;
 	width: 10rem;
 	border-radius: 0.8rem;
 	margin-top: 0.5rem;
