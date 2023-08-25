@@ -6,27 +6,33 @@ let lastRenderTime = 0
 let gameOver = false
 const gameBoard = document.getElementById('game-board')
 
+
 function main(currentTime) {
   if (gameOver) {
-    if (confirm('You lost. Press ok to restart.')) {
-      window.location.reload()
+    if (confirm('You lost. Press OK to restart.')) {
+      window.location.reload();
     }
-    return
+    return;
   }
 
+  const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
+  if (secondsSinceLastRender < 1 / SNAKE_SPEED) {
+    // Skip this frame if not enough time has passed
+    window.requestAnimationFrame(main);
+    return;
+  }
 
-  window.requestAnimationFrame(main)
-  const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
-  if (secondsSinceLastRender < 1 / SNAKE_SPEED) return
+  lastRenderTime = currentTime;
 
-  lastRenderTime = currentTime
+  update();
+  draw();
 
-  update()
-  draw()
+  // Call main function again for the next frame
+  window.requestAnimationFrame(main);
 }
 
-window.requestAnimationFrame(main)
-
+// Initial call to start the game loop
+window.requestAnimationFrame(main);
 function update() {
   updateSnake()
   updateFood()
@@ -39,6 +45,11 @@ function draw() {
   drawFood(gameBoard)
 }
 
+
 function checkDeath() {
-  gameOver = outsideGrid(getSnakeHead()) 
+  if (onSnake(getSnakeHead(), { ignoreHead: true }) || outsideGrid(getSnakeHead())) {
+    gameOver = true; // Set the gameOver flag if self-collision or boundary collision occurs
+  }
 }
+
+

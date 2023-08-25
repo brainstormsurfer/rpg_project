@@ -12,47 +12,61 @@ export function update() {
   addSegments();
 
   const inputDirection = getInputDirection();
+  
   for (let i = snakeBody.length - 2; i >= 0; i--) {
     snakeBody[i + 1] = { ...snakeBody[i] };
   }
-
+  
   snakeBody[0].x += inputDirection.x;
-  snakeBody[0].y += inputDirection.y;
+  const newSnakeHead = {
+    x: snakeBody[0].x + inputDirection.x,
+    y: snakeBody[0].y + inputDirection.y
+  };
 
-  // Update digestion progress
-  if (digestionProgress < digestingUnits.length) {
-    digestionProgress++;
+  if (onSnake(newSnakeHead, { ignoreHead: true })) {
+    // Snake collided with itself, trigger endgame
+    return;
   }
+  snakeBody[0].y += inputDirection.y;
+  digestionProgress++
 }
+
 export function draw(gameBoard) {
   snakeBody.forEach((segment, index) => {
-    const snakeElement = document.createElement("div");
-    snakeElement.style.gridRowStart = segment.y;
-    snakeElement.style.gridColumnStart = segment.x;
-    snakeElement.classList.add("snake");
-
-    // Rotating the head according to direction
-    if (index === 0) {
-      snakeElement.style.transform = `rotate(${headTo.degrees}deg)`;
-      if (headTo.headAngle === "straight")
-        snakeElement.classList.add("head-straight");
-      else if (headTo.headAngle === "left")
-        snakeElement.classList.add("head-left");
-      else snakeElement.classList.add("head-right");
-    }
-
-    if (digestingUnits.includes(index)) {
-      if (index % 3 === 0 && digestingUnits.length > 2)
-        snakeElement.classList.add("digest-rare");
-      else snakeElement.classList.add("digest");
-    } else snakeElement.classList.remove("digest");
-
+    const snakeElement = createSnakeElement(segment, index);
     gameBoard.appendChild(snakeElement);
   });
+}
 
-  // Shifting in order to keep head and tails in original colors
-  if (digestingUnits.length > 0 && digestingUnits[0] === 0) {
-    digestingUnits.shift();
+function createSnakeElement(segment, index) {
+  const snakeElement = document.createElement("div");
+  snakeElement.style.gridRowStart = segment.y;
+  snakeElement.style.gridColumnStart = segment.x;
+  snakeElement.classList.add("snake");
+
+  if (index === 0) {
+    setHeadStyles(snakeElement);
+  }
+
+  if (digestingUnits.includes(index)) {
+    setDigestStyles(snakeElement, index);
+  } else {
+    snakeElement.classList.remove("digest", "digest-rare");
+  }
+
+  return snakeElement;
+}
+
+function setHeadStyles(snakeElement) {
+  snakeElement.style.transform = `rotate(${headTo.degrees}deg)`;
+  snakeElement.classList.add("head-" + headTo.headAngle);
+}
+
+function setDigestStyles(snakeElement, index) {
+  if (index % 3 === 0 && digestingUnits.length > 2) {
+    snakeElement.classList.add("digest-rare");
+  } else {
+    snakeElement.classList.add("digest");
   }
 }
 
@@ -82,4 +96,8 @@ function addSegments() {
   }
 
   newSegments = 0;
+    // Shifting in order to keep head and tails in original colors
+    if (digestingUnits.length > 0 && digestingUnits[0] === 0) {
+      digestingUnits.shift();
+    }
 }
