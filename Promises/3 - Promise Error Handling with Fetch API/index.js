@@ -6,10 +6,25 @@ fetch(`${usersUrl}/users`)
     if (!response.ok) {
       throw new Error(`Status Code Error: ${response.status}`);
     }
-    return response.json();
+    const a = response.json();  
+    const  arr=[]
+
+    arr.push(a)
+    console.log('before',arr[0])
+ setTimeout(
+  ()=>{
+    console.log('after',arr[0])
+
+    arr[0].then(r=>console.log(r)).catch(j=>console.error(j))
+  },4000
+)
+    
+
+    // console.log({a});
+    // debugger
+    // return a
   })  
 .then((data) => {
-        console.log("FETCHED ALL USERS2", data);
     const usersDiv = document.getElementById("users");
     for (let user of data) {
       const userDiv = document.createElement("div");
