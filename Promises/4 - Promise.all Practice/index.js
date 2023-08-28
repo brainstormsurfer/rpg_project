@@ -1,55 +1,47 @@
-const usersUrl = "https://jsonplaceholder.typicode.com/users";
-const postsUrl = `${usersUrl}/posts`;
+const url = "https://jsonplaceholder.typicode.com";
+const usersUrl = `${url}/users`
+const postsUrl = `${url}/posts`;
 
+const postsContainer = document.querySelector('#users')
 
-const testRequest = (url) => {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            const rand = Math.random()
-            if (rand < 0.3){
-                reject({status: 404});
-            }
-            else {
-                const pages = {
-                    '/users' : [
-                        { id: 1, username: 'Bilbo'},
-                        { id: 5, username: 'Esmerald'}
-                    ],
-                    '/about' : 'This is the about page!'
-                };                
-                const data = pages[url];
-                resolve({status: 200, data})                
-            }
-        }, 1000);
-    });
-};
-
-testRequest('/about')
+const usersPromise = fetch(usersUrl)
+.then((response) => response.json())
 .then((res) => {
-    console.log('Status Code', res.status);
-    console.log('Data', res.data);
-    console.log('REQUEST WORKED!');
+    return res
 })
-.catch((res) => console.log(res.status))
+.catch(err => {
+    displayError(`${err.message}`,'usersPromise')
+})
 
+const postsPromise = fetch(postsUrl)
+.then(response => response.json())
+.then((res) => {
+    return res
+})
+.catch(err => displayError(`${err.message}`, 'postsPromise'))
 
-// fetch(usersUrl)
-// .then((response) => {
-//     // const test = response.json()
-//     const test = response.json()
-//     .then(data => {
-//         console.log('users1', data)
-//         return data
-//     })
-//     // console.log('users1', test)
-//     return test
-// })
-// .then((data) => console.log('users2', data))
-// .catch(err => console.error(err))
-
-// const posts = fetch(postsUrl)
-// .then(response => {
-//     console.log('posts', response.json())
-//     response.json()
-// })
-// .catch(err => console.error(err))
+Promise.all([usersPromise, postsPromise])
+.then(([users, posts]) => {
+    const usersArr = users
+    const userContainer = document.querySelector('#users')    
+    usersArr.forEach((user) => {
+        const userDiv = document.createElement('div')
+        userDiv.classList.add('item')
+        userDiv.innerHTML = `<strong>${user.name}</strong><br>${user.email}`;
+        userContainer.append(userDiv)
+    })
+    const postsArr = posts
+    const postsContainer = document.querySelector('#posts')
+    postsArr.forEach((post) => {
+        const postDiv = document.createElement('div')
+        postDiv.classList.add('item')
+        postDiv.innerHTML = `<strong>${post.title}</strong><br>${post.body}`
+        postsContainer.appendChild(postDiv)
+    })
+})
+.catch(err => displayError(`${err.message}`, 'Promise.all'))
+function displayError(err, source) {
+const errorDiv = document.querySelector('#error')
+errorDiv.innerHTML += `${source}: ${err} <br>` 
+errorDiv.style.whiteSpace = "pre-line";
+}
