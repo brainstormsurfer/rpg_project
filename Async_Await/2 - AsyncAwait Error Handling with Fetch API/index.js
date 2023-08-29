@@ -4,8 +4,8 @@ const usersDiv = document.getElementById("users");
 
 async function fetchUsers() {
   try {
-    const response = await fetch(`${usersUrl}/ushgfers`);
-    if (response.status >= 400) throw new Error(`Networking issue,  ${response.status}`);
+    const response = await fetch(`${usersUrl}/ussssers`);
+    if (!response.ok) throw new Error(`Networking issue, ${response.status}`);
     const data = await response.json();
     for (let user of data) {
       const userDiv = document.createElement("div");
