@@ -4,9 +4,9 @@
 	display: inline-block;
 	width: 6rem;
 	height: 3.4rem;
+	margin-top: 1rem;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
 	opacity: 0;
 	width: 0;
@@ -37,6 +37,8 @@
 }
 
 .slider:before {
+	content: '\00D7 1';
+	padding: 0.3rem;
 	position: absolute;
 	left: 0.2rem;
 	background-color: #3dbe42;
@@ -63,5 +65,4 @@ input:checked + .slider {
 	height: 2.1rem;
 	width: 3.5rem;
 	top: 0.2rem;
-  content: '\00D7 1';
 }

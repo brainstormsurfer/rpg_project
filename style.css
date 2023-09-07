@@ -190,14 +190,21 @@
 	padding: 0.5rem;
  }
 
- .strength{
+ .strength {
 	position: relative;
 	top: 0.5rem;
  }
 
- .health {
-	position: relative;
-	top: 0.1rem;
+.squaddie-health span {
+		position: relative;
+		left: -2rem;
+		top: 0.3rem;
+ }
+
+ .squaddie-strength span {
+		position: relative;
+		left: -2.4rem;
+		top: -0.2rem;
  }
 
 .add-squaddie-btn {
@@ -234,10 +241,44 @@
 .upgrade-btn {
 	border: 0.2rem solid var(--black-001);
 	box-shadow: none;
-	height: 3.6rem;
+	height: 3.2rem;
 	width: 10rem;
 	border-radius: 0.8rem;
 	margin-top: 0.5rem;
+}
+
+.upgrade-btn-content {
+	margin-top: 0.5rem;
+	margin-left: 0.2rem;
+	text-shadow: var(--text-outline);
+	color: white;
+	font-size: 1.8rem;
+}
+
+.btn-up-arrow {
+	position: relative;
+	right: 2rem;
+	bottom: 0.3rem;
+}
+
+.gold-medal {
+	position: absolute;
+	right: 1.5rem;
+	bottom: 0.1rem;
+}
+
+.gold-medal-outline {
+ 	position: absolute;
+	right: 1.5rem;
+	bottom: 0.1rem;
+	z-index: -1;
+}
+
+.upgrade-price {
+	position: absolute;
+	right: -0.6rem;
+	bottom: 0.2rem;
+	z-index: -1;
 }
 
 .squaddie-blue section {
